@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form id="registerForm" method="post">
+    请输入用户名:<input type="text" name="userName"/>
+    请输入密码:<input type="text" name="password"/>
+    请输入手机号码:<input type="text" name="phoneNumber"/>
+    <button>提交</button>
+</form>
+
+<!--
+从定义上看，策略模式就是用来封装算法的。但如果把策略模式仅仅用来封装算法，未免有
+一点大材小用。在实际开发中，我们通常会把算法的含义扩散开来，使策略模式也可以用来封装
+一系列的“业务规则”。只要这些业务规则指向的目标一致，并且可以被替换使用，我们就可以
+用策略模式来封装它们。
+GoF 在 《设计模式》一书中提到了一个利用策略模式来校验用户是否输入了合法数据的例子，
+但 GoF 未给出具体的实现。刚好在 Web 开发中，表单校验是一个非常常见的话题。下面我们就
+看一个使用策略模式来完成表单校验的例子。
+-->
+
+<script>
+    // 把校验逻辑封装成策略对象
+    var strategies = {
+        isNonEmpty: function (value, errorMsg) {
+            if (value === '') {
+                return errorMsg;
+            }
+        },
+        minLength: function (value, length, errorMsg) {
+            if (value.length < length) {
+                return errorMsg;
+            }
+        },
+        isMobile: function (value, errorMsg) {
+            if (!/(^1[3|5|8][0-9]{9}$)/.test(value)) {
+                return errorMsg;
+            }
+        }
+    }
+
+    // 定义Validator类  作为环境类Context 负责接收用户请求并委托给strategy对象
+    var Validator = function () {
+        this.cahe = []; // 保存校验规则
+    }
+
+    Validator.prototype.add = function (dom, rule, errorMsg) {
+        var ary = rule.split(':');      // 把strategy和参数分开
+        this.cahe.push(function () {
+            var strategy = ary.shift(); // 用户挑选的strategy
+            ary.unshift(dom.value);     // input的value添加进参数列表 unshift添加到数组头部
+            ary.push(errorMsg);         // errorMsg添加参数列表
+            return strategies[strategy].apply(dom, ary); //调用具体的策略
+        });
+    }
+
+    Validator.prototype.start = function () {
+        for (var i = 0, validatorFunc; validatorFunc = this.cahe[i++];) {
+            var msg = validatorFunc(); // 开始校验,并取得校验后的返回信息
+            if (msg) {
+                return msg;
+            }
+        }
+    }
+
+    var registerForm = document.getElementById('registerForm');
+    registerForm.onsubmit = function () {
+        var errorMsg = validateFunc();
+        if (errorMsg) {
+            alert(errorMsg);
+            return false;
+        }
+    }
+
+    // 验证函数
+    var validateFunc = function () {
+        var validator = new Validator();
+
+        // 添加校验规则
+        validator.add(registerForm.userName, 'isNonEmpty', '用户名不能为空');
+        validator.add(registerForm.password, 'minLength:6', '密码长度不能少于6位');
+        validator.add(registerForm.phoneNumber, 'isMobile', '手机号码格式不正确');
+
+        var errorMsg = validator.start();
+        return errorMsg;
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Reading Notes</title>
+</head>
+<body>
+<script type="text/javascript">
+    //jQuery源码的总体结构
+    (function( window, undefined ) {
+        // 构造jQuery 对象
+        var jQuery = (function() {
+            var jQuery = function( selector, context ) {
+                return new jQuery.fn.init( selector, context, rootjQuery );
+            }
+            return jQuery;
+        })();
+        // 工具方法 Utilities
+        // 回调函数列表 Callbacks Object
+        // 异步队列 Deferred Object
+        // 浏览器功能测试 Support
+        // 数据缓存 Data
+        // 队列 Queue
+        // 属性操作 Attributes
+        // 事件系统 Events
+        // 选择器 Sizzle
+        // DOM 遍历 Traversing
+        // DOM 操作 Manipulation
+        // 样式操作 CSS（计算样式、内联样式）
+        // 异步请求 Ajax
+        // 动画 Effects
+        // 坐标 Offset、尺寸 Dimensions
+        // If there is a window object, that at least has a document property,
+        // define jQuery and $ identifiers
+        if ( typeof window === "object" && typeof window.document === "object" ) {
+            window.jQuery = window.$ = jQuery;
+        }
+    })(window);//匿名函数的自调用
+
+    //fn为prototype的别名
+    jQuery.fn = jQuery.prototype = {
+        // The current version of jQuery being used
+        jquery: core_version,
+        constructor: jQuery,
+        init: function (selector, context, rootjQuery) {
+            var match, elem;
+        }
+    }
+
+    // Give the init function the jQuery prototype for later instantiation
+    //用jQuery的prototype覆盖jQuery.fn.init的prototype
+    jQuery.fn.init.prototype = jQuery.fn;(jQuery.fn = jQuery.prototype)
+
+    //jQuery对象是一个类数组对象 0:div 1:div 2 div context:document  length:3
+
+</script>
+</body>
+</html>

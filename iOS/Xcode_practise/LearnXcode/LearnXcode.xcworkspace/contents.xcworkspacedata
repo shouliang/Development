@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:HelloiOSGame/HelloiOSGame.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:HelloOSXGame/HelloOSXGame.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:HelloOSXWindow/HelloOSXWindow.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:HelloOSX/HelloOSX.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:HelloiOS03/HelloiOS03.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:HelloiOS02/HelloiOS02.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:HelloiOS01/HelloiOS01.xcodeproj">
+   </FileRef>
+</Workspace>

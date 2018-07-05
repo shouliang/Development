@@ -1,0 +1,17 @@
+{
+  "name": "webstormpractise",
+  "version": "1.0.0",
+  "description": "just some practise",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "practise"
+  ],
+  "author": "shouliang",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.2.1"
+  }
+}
