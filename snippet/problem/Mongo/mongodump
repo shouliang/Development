@@ -1,0 +1,4 @@
+mongodump --h ip 
+会在当前文件夹下生成dump\mean-dev
+
+mongorestore 默认会在当前文件夹下的dump文件夹下恢复数据库

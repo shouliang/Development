@@ -1,0 +1,26 @@
+1.Fix a Git detached head
+
+$git checkout –b temp #makes a new branch from current detached HEAD
+$git branch –f master temp #update master to point to the new <temp> branch
+$git branch –d temp #delete the <temp> branch
+$git push origin master #push the re-established history
+
+
+
+2.You have not concluded your merge (MERGE_HEAD exists)
+
+OK. The problem is your previous pull failed to merge automatically and went to conflict state. And the conflict wasn't resolved properly before the next pull.
+
+1) Undo the merge and pull again.
+
+To undo a merge:
+
+git merge --abort [Since git version 1.7.4]
+
+git reset --merge [prior git versions]
+
+2) Resolve the conflict.  // 解决冲突后提交、解决冲突可以在解决直接修改，但需要全部resolve才可以
+
+3) Don't forget to add and commit the merge.
+
+4) git pull now should work fine.
