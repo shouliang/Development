@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>常见的布局1(header、main、footer)</title>
+    <style>
+        #container{
+            width:1000px;
+            background:gray;
+            margin:0 auto;
+        }
+        #header{
+            height:120px ;
+            background:orange;
+        }
+        #main{
+            height:650px; /*main里面的lside和rside均设置了float属性，会浮动脱离稳定流，故其必须设置高度，否则包含不了*/
+            background:green;
+        }
+        #lside{
+            width:750px;
+            height:650px;
+            background: pink;
+            float:left;
+        }
+        .four{
+            height:260px;
+            width:300px;
+            margin: 20px;
+            background: gray;
+            float:left;
+            padding:10px;
+        }
+        #rside{
+            width:250px;
+            height:650px;
+            background: purple;
+            float: right;
+        }
+        #footer{
+            height: 100px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header"></div>
+        <div id="main">
+            <div id="lside">
+                <div class="four">
+                    12月29日中共中央政治局召开会议，会议指出，2014年党中央旗帜鲜明推进党风廉政建设和反腐败斗争，持之以恒纠正“四风”，坚定不移惩治腐败，取得新的成效，赢得党心民心。党风廉政建设和反腐败斗争要坚守阵地、巩固成果、深化拓展。把党的纪律建设摆在更加突出的位置，强化纪律刚性约束，严明政治纪律和政治规矩，党内决不容忍搞团团伙伙、结党营私、拉帮结派。
+                </div>
+                <div class="four"></div>
+                <div class="four"></div>
+                <div class="four"></div>
+            </div>
+            <div id="rside"></div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>
