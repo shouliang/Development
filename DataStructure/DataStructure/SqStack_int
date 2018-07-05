@@ -1,0 +1,169 @@
+//
+// Created by 朱守亮 on 2017/8/1.
+//
+
+#include <stdio.h>
+#include <sys/malloc.h>  // MAC平台引入malloc.h需要加入sys
+#include <cstdlib>       // MAC平台使用malloc函数需要引入的头文件
+#include "statusDef.h"
+
+#define STACK_INIT_SIZE 100
+#define STACKINCREMENT  10
+
+// ------ 数据元素类型为int的栈 -----
+typedef struct {
+    int *base;
+    int *top;
+    int stacksize;
+} SqStack_Int;
+
+Status InitStack_Int(SqStack_Int &S) {
+    S.base = (int *) malloc(sizeof(int));
+    if (!S.base) exit(OVERFLOW);
+    S.top = S.base;
+    S.stacksize = STACK_INIT_SIZE;
+    return OK;
+}
+
+Status GetTop_Int(SqStack_Int S, int &e) {
+    if (S.top == S.base) return ERROR;  // S.top == S.base 栈空的标记
+    e = *(S.top - 1);
+    return OK;
+}
+
+Status Push_Int(SqStack_Int &S, int &e) {
+    if (S.top - S.base >= S.stacksize) {
+        S.base = (int *) realloc(S.base, (S.stacksize + STACKINCREMENT) * sizeof(int));
+        if (!S.base) exit(OVERFLOW);
+        S.top = S.base + S.stacksize;
+        S.stacksize = S.stacksize + STACKINCREMENT;
+    }
+//    *S.top++ = e;
+    *S.top = e;
+    S.top = S.top + 1;  // 非空栈中的栈顶指针始终指向栈顶元素的下一个元素的位置上
+    return OK;
+}
+
+Status Pop_Int(SqStack_Int &S, int &e) {
+    if (S.top == S.base) return ERROR;
+//    e = *--S.top;
+    S.top = S.top - 1;
+    e = *(S.top);
+    return OK;
+}
+
+Status StackEmpty_Int(SqStack_Int S) {
+    if (S.top == S.base) return OK;
+    return ERROR;
+}
+
+// 为求后缀表达式的值，重新一个GetTop，直接返回栈顶元素
+int GetTop_Int(SqStack_Int S) {
+    if (S.top == S.base) return ERROR;  // S.top == S.base 栈空的标记
+    return *(S.top - 1);
+}
+
+// 计算后缀表达式
+void EvaluateMiddleExpression() {
+    char *middleExpression = "931-3*+82/+#";
+    int i = 0;
+    SqStack_Int S;
+    InitStack_Int(S);
+    char c = middleExpression[i];
+    while (c != '#') {
+        if (!In(c)) {
+            int e = charToInt(c);
+            Push_Int(S, e);
+        } else {
+            int b;
+            Pop_Int(S, b);
+
+            int a;
+            Pop_Int(S, a);
+
+            int result = Operate(a, c, b);
+            Push_Int(S, result);
+        }
+
+        c = middleExpression[++i];
+    }
+
+    int re;
+    Pop_Int(S, re);
+    printf("%d", re);
+
+    return void();
+}
+
+
+
+
+/* 废弃
+int EvaluateExpression() {
+    // OPTR运算符栈
+    // OPND运算数栈
+    SqStack OPTR;
+    SqStack_Int OPND;
+
+    InitStack(OPTR);
+    InitStack_Int(OPND);
+
+    SElemType beginOPTR = '#';
+    Push(OPTR, beginOPTR);
+
+    char OP[] = {'+', '-', '*', '/', '(', ')', '#'};
+
+    char *expression = "3*(7-2)#";
+
+    int i = 0;
+    char c = expression[i];
+
+    while (c != '#' || GetTop(OPTR) != '#') {
+        if (!In(c, OP)) {
+            int ic = charToInt(c);
+            Push_Int(OPND, ic); // 不是运算符直接进运算数栈
+            //c = getchar();
+        } else {
+            switch (Precede(GetTop(OPTR), c)) {
+                case '<':           // 栈顶元素优先权低
+                    Push(OPTR, c);
+                    //c = getchar();
+                    i++;
+                    c = expression[i];
+
+                    break;
+                case '=':           // 脱括号并接受下一个字符
+                    char x;
+                    Push(OPTR, x);
+                    //c = getchar();
+                    i++;
+                    c = expression[i];
+
+                    break;
+                case '>':           // 退栈并将运算结果入栈
+                    char theta;
+                    Pop(OPTR, theta);
+
+                    int b, a;
+                    Pop_Int(OPND, b);
+                    Pop_Int(OPND, a);
+
+                    int result = Operate(a, theta, b);
+                    Push_Int(OPND, result);
+
+                    break;
+            }
+        }
+
+
+    }
+
+    return GetTop_Int(OPND);
+
+}
+*/
+
+
+
+
+
