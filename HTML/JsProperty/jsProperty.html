@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js属性</title>
+    <script type="text/javascript">
+
+        function testProperty() {
+            var person = {
+                name: "Nicholas",
+                age: 29,
+                job: "Software Engineer",
+
+                sayName: function () {
+                    alert(this.name);
+                }
+            };
+
+            Object.defineProperties(person, {year: {get: function () {
+                return this.age
+            }}});
+            var desc = Object.getOwnPropertyDescriptor(person, "name");
+            alert(desc.configurable);
+
+            desc = Object.getOwnPropertyDescriptor(person, "year");
+            alert(desc.value);
+
+        }
+
+    </script>
+</head>
+<body>
+<button onclick="testProperty()">click me</button>
+</body>
+</html>
