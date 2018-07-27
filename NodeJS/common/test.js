@@ -113,26 +113,105 @@
 
 // ------------------------------
 
-let symbol1 = Symbol();
-let symbol2 = Symbol();
-console.log( symbol1=== symbol2);
-console.log(typeof symbol1);
+// let symbol1 = Symbol();
+// let symbol2 = Symbol();
+// console.log( symbol1=== symbol2);
+// console.log(typeof symbol1);
 
-let myObject = {
-    publicProperty: 'Value of myObject["publicProperty"]'
-};
-myObject[symbol1] = 'Value of myObject[symbol1]';
-myObject[symbol2] = 'Value of myObject[symbol2]';
+// let myObject = {
+//     publicProperty: 'Value of myObject["publicProperty"]'
+// };
+// myObject[symbol1] = 'Value of myObject[symbol1]';
+// myObject[symbol2] = 'Value of myObject[symbol2]';
 
-console.log(myObject);
-console.log(myObject[symbol1]);
+// console.log(myObject);
+// console.log(myObject[symbol1]);
 
-console.log('--------')
-console.log(JSON.stringify(myObject));
+// console.log('--------')
+// console.log(JSON.stringify(myObject));
 
-for(let prop in myObject){
-    console.log(prop, myObject[prop]);
-}
+// for(let prop in myObject){
+//     console.log(prop, myObject[prop]);
+// }
 
-console.log(Object.keys(myObject));
+// console.log(Object.keys(myObject));
 //console.log(myObject[Object.getOwnPropertySymbols(myObject)[0]]);
+
+// ------------------------------
+
+// var Person = (function() {
+//     var nameSymbol = Symbol('name');
+
+//     function Person(name) {
+//         this[nameSymbol] = name;
+//     }
+
+//     Person.prototype.getName = function() {
+//         return this[nameSymbol];
+//     };
+
+//     return Person;
+// }());
+
+// ------------------------------ 
+// var p = new Person('John');
+// console.log('Person 3 name: ' + p.getName());
+// delete p.name;
+// console.log('Person 3 name: ' + p.getName() + ' — stays private.');
+// console.log('Person 3 properties: ' + Object.getOwnPropertyNames(p));
+
+// function Timer() {
+//     this.s1 = 0;
+//     this.s2 = 0;
+//     // 箭头函数
+//     setInterval(() => this.s1++, 1000);
+//     // 普通函数
+//     setInterval(function () {
+//       this.s2++;
+//     }, 1000);
+//   }
+
+//   var timer = new Timer();
+
+//   setTimeout(() => console.log('s1: ', timer.s1), 3100);
+//   setTimeout(() => console.log('s2: ', timer.s2), 3100);
+// ------------------------------
+
+// function foo() {
+//     return () => {
+//         return () => {
+//             return () => {
+//                 console.log('id:', this.id);
+//             };
+//         };
+//     };
+// }
+
+// var f = foo.call({ id: 1 });
+
+// var t1 = f.call({ id: 2 })()(); // id: 1
+// var t2 = f().call({ id: 3 })(); // id: 1
+// var t3 = f()().call({ id: 4 }); // id: 1
+
+// ------------------------------
+// function foo() {
+//     setTimeout(() => {
+//         console.log('args:', arguments);
+//     }, 100);
+// }
+
+// foo(2, 4, 6, 8)
+
+// ------------------------------
+
+(function () {
+    return [
+        (() => console.log(this.x)).bind({ x: 'inner' })()
+    ];
+}).call({ x: 'outer' });
+
+// ------------------------------
+
+// ------------------------------
+
+// ------------------------------
