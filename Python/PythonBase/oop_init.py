@@ -1,0 +1,13 @@
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def say_hi(self):
+        print('Hello, my name is', self.name)
+
+
+p = Person('Swaroop')
+p.say_hi()
+
+# 也可以写作以下方式
+Person('Swaroop').say_hi()
