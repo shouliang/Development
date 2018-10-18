@@ -1,3 +1,7 @@
+# 可变参数，通过使用星号来实现
+# *param，从此处开始直到结束的所有位置参数都将被收集到一个称为"param"的元组中
+# **param,从此处开始直到结束的所有关键字参数都会被收集到一个名为"param"的字典中
+
 def total(a=5, *numbers, **phonebook):
     print('a', a)
 
@@ -10,4 +14,4 @@ def total(a=5, *numbers, **phonebook):
         print(first_part, second_part)
 
 
-print(total(10, 1, 2, 3, Jack=1123, John=2231, Inger=1560   ))
+print(total(10, 1, 2, 3, Jack=1123, John=2231, Inger=1560))

@@ -2,6 +2,7 @@
 import sys
 import time
 
+# finally总是被执行，一般执行释放资源的操作：如关闭文件，关闭数据库连接等
 f = None
 try:
     f = open('poem.txt')

@@ -1,3 +1,4 @@
+# 字典：key:value的形式
 ab = {
     'Swaroop': 'swaroop@swaroopch.com',
     'Larry': 'larry@wall.org',

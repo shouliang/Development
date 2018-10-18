@@ -1,4 +1,5 @@
 # coding=utf-8
+# 抛出异常
 class ShortInputException(Exception):
     '''一个由用户定义的异常类'''
     def __init__(self, length, atleast):

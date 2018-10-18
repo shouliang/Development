@@ -1,3 +1,6 @@
+# 处理异常
+# 至少有一个except与try相对应
+
 try:
     text = input('Enter something -->')
 except EOFError:
@@ -5,4 +8,4 @@ except EOFError:
 except KeyboardInterrupt:
     print('You cancelled the operation')
 else:
-    print('You entered {}'.format(text  ))
+    print('You entered {}'.format(text))

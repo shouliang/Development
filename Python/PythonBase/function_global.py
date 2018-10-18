@@ -2,7 +2,7 @@ x = 50
 
 
 def func():
-    global x
+    global x # global声明一个全局变量，改变后会影响到主代码块中的x的值
 
     print('x is', x)
     x = 2

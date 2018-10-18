@@ -1,6 +1,7 @@
 number = 23
 running = True
 
+# while语句可以拥有else子句作为可选选项
 while running:
     guess = int(input('Enter an integer : '))
 

@@ -1,3 +1,4 @@
+# 在函数中接收元组
 def powersum(power, *args):
     total = 0
     for i in args:

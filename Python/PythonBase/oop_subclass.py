@@ -1,5 +1,7 @@
 # coding=utf-8
+# 类的继承
 
+# 基类
 class SchoolMember:
     '''代表任何学校里的成员'''
 
@@ -12,10 +14,12 @@ class SchoolMember:
         '''告诉我有关我的细节'''
         print('Name:"{}" Age:"{}"'.format(self.name, self.age), end=" ")
 
-
+# 子类
+# 定义子类时需要在类后面跟一个包含基类名称的元组
 class Teacher(SchoolMember):
     '''代表一位老师'''
 
+    # 子类中定义了 __init__ 方法，Python不会自动调用基类中的构造函数，需要显式地调用基类中的构造函数
     def __init__(self, name, age, salary):
         SchoolMember.__init__(self, name, age)
         self.salary = salary
@@ -28,7 +32,7 @@ class Teacher(SchoolMember):
 
 class Student(SchoolMember):
     '''代表一位学生'''
-    # 子类中定义了 __init__ 方法，Python不会自动调用基类中的构造函数，需要显式地调用它
+
     def __init__(self, name, age, marks):
         SchoolMember.__init__(self, name, age)
         self.marks = marks

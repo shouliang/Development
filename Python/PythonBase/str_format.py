@@ -1,7 +1,10 @@
 # coding=utf-8
+# 字符串是不可变的
+# 一串字符串是字符的序列
 age = 20
 name = 'Swaroop'
 
+# 索引是从0开始计数，以此类推
 print('{0} was {1} years old when he wrote this book'.format(name, age))
 print('Why is {0} playing with that python?'.format(name))
 

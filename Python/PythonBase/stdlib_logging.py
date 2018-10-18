@@ -2,6 +2,7 @@ import os
 import platform
 import logging
 
+# 标准库实例
 if platform.platform().startswith('Windows'):
     logging_file = os.path.join(os.getenv('HOMEDRIVE'),
                                 os.getenv('HOMEPATH'),

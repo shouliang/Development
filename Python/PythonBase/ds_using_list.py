@@ -1,3 +1,5 @@
+# 列表是一种可变的数据类型
+# 列表的sort方法会对列表进行排序，会影响到列表本身
 # This is my shopping list
 shoplist = ['apple', 'mango', 'carrot', 'banana']
 

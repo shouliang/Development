@@ -1,3 +1,5 @@
+# 序列的主要功能是资格测试，即：in与not in表达式和索引操作
+# 列表，元组，字符串都拥有切片运算符
 shoplist = ['apple', 'mango', 'carrot', 'banana']
 name = 'swaroop'
 
