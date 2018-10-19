@@ -1,6 +1,8 @@
 from urllib import request, parse 
 
 url = 'http://httpbin.org/post'
+
+# 构造自定义的头部信息
 headers = {
 	'User-Agent': 'Mozila/4.0 (compatible; MSIE 5.5; Windows NT)',
 	'Host': 'httpbin.org'
@@ -10,6 +12,7 @@ dict = {
 	'name': 'Germey'
 }
 
+# urllib.request的参数构造：url, data, headers, method
 data = bytes(parse.urlencode(dict), encoding='utf-8')
 req = request.Request(url=url, data=data, headers=headers, method='POST')
 response = request.urlopen(req)
