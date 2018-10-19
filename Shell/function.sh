@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# 函数不带参数
 demoFun() {
 	echo "这是我的第一个 shell 函数！"
 }
@@ -18,12 +19,13 @@ funWithReturn() {
 	return $(($aNum + $anotherNum))
 }
 
+# 所有的函数在使用前必须定义
 funWithReturn
 
 # 函数的返回值在调用之后通过 $? 来获得
 echo "输入的两个数字之和为 $? "
 
-
+# 当参数n > 10,需要通过${n}的形式来获取参数
 funWithParam() {
 	echo "第一个参数为 $1"
 	echo "第二个参数为 $2"

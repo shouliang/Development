@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# 文件测试运算符
 file="./expr_file.sh"
 if [ -r $file ]
 then 

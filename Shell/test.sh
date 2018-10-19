@@ -1,3 +1,6 @@
+#!/bin/bash
+
+# 数值测试
 num1=100
 num2=100
 
@@ -14,6 +17,7 @@ b=6
 result=$[a+b]
 echo "result is: $result"
 
+# 字符串测试
 str1="xxxyyy"
 str2="xxxxyyz"
 
@@ -24,7 +28,7 @@ else
     echo "两个字符串不相等"
 fi    	
 
-
+# 文件测试
 cd /bin
 if test -e ./bash
 then
