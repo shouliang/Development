@@ -1,3 +1,16 @@
+#!/bin/bash
+
+# if 与 fi 相互匹配
+if condition
+then
+    "command1"
+else
+    "command"
+fi
+
+# for in
+# in列表可以包含字符串、文件名
+# in列表是可选的，如果不用它，默认使用命令行的位置参数
 for loop in 1 2 3 4 5
 do
 	echo "The value is: $loop"
@@ -50,8 +63,10 @@ done
 # 	;;
 # esac
 
-
-
+# case 值 in
+# 模式1)
+# 注意只有一个右括号
+# case 与 esac(就是case反过来拼写) 相互匹配
 while :
 do
 	echo -n "输入 1 到 5 之间的数字:"
