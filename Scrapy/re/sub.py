@@ -1,5 +1,6 @@
 import re
 
+# sub可以通过正则表达式替换掉匹配的内容
 content = '54aK54xY4449R9FeD66E'
 content = re.sub('\d+', '', content)
 print(content)

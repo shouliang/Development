@@ -10,7 +10,7 @@ text = '''
 </ul>
 </div>
 '''
-
+# HTML文本中最后一个li节点没有闭合，但是etree模块可以自动修复HTML文本
 html = etree.HTML(text)
 result = etree.tostring(html)
 print(result.decode('utf-8'))

@@ -10,6 +10,8 @@ headers = {
 
 s = Session()
 req = Request('POST', url, data=data, headers=headers)
+
+# 构造一个prepare_request
 prepped = s.prepare_request(req)
 r = s.send(prepped)
 print(r.text)
