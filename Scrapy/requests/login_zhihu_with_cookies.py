@@ -1,5 +1,6 @@
 import requests
 
+# 直接copy登录知乎网站后产生的cookie字段来模拟登录
 headers = {
     'Cookie': 'tgw_l7_route=5bcc9ffea0388b69e77c21c0b42555fe;'
               '_xsrf=YexaZGfEwWnCZmkGIhjw4pF7FlY5CZEu;'

@@ -21,6 +21,8 @@ html = '''<div id="songs-list">
     </ul>
 </div>'''
 
+# 由于代码有换行，故第三个参数需要传入re.S
+# 注意想要提取的结果在group里面，但是索引是从1开始的
 result = re.search('<li.*?active.*?singer="(.*?)">(.*?)</a>', html, re.S)
 if result:
     print(result.group(1), result.group(2))
