@@ -14,3 +14,9 @@ results = collection.find({'age':{'$gt': 20}})
 print(results)
 for result in results:
     print(result)
+
+print('------ regex ------')
+# 也可以正则匹配
+results = collection.find({'name':{'$regex': '^M.*'}})
+for result in results:
+    print(result)
