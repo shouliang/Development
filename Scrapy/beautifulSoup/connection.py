@@ -39,3 +39,5 @@ print(soup.a.parent)
 
 # 获取祖先点:通过parents属性
 print(soup.a.parents)
+
+
