@@ -6,6 +6,7 @@ from hashlib import md5
 from multiprocessing.pool import Pool
 
 
+# 加载单个Ajax请求的结果
 def get_page(offset):
     params = {
         'offset': offset,
@@ -26,6 +27,7 @@ def get_page(offset):
         return None
 
 
+# 解析json中的图片，放入一个生成器
 def get_iamges(json):
     if json.get('data'):
         data = json.get('data')
@@ -41,17 +43,22 @@ def get_iamges(json):
                 }
 
 
+# 保存图片
 def save_image(item):
     img_path = item.get('title')
+    # 创建文件夹: 用title命名
     if not os.path.exists(img_path):
         os.makedirs(img_path)
     try:
         resp = requests.get(item.get('image'))
         if codes.ok == resp.status_code:
-            file_path = img_path + '/{file_name}.{file_stuffx}'.format(
+            # 构造file_path
+            file_path = '{img_path}/{file_name}.{file_stuffx}'.format(
+                img_path=img_path,
                 file_name=md5(resp.content).hexdigest(),
                 file_stuffx='jpg'
             )
+            # 写入文件
             if not os.path.exists(file_path):
                 with open(file_path, 'wb') as f:
                     f.write(resp.content)
@@ -74,8 +81,10 @@ GROUP_START = 0
 GROUP_END = 7
 
 if __name__ == '__main__':
+    # 线程池
     pool = Pool()
     groups = ([x * 20 for x in range(GROUP_START, GROUP_END + 1)])
+    # map方法实现多线程下载
     pool.map(main, groups)
     pool.close()
     pool.join()
