@@ -93,7 +93,6 @@ class CrackGeetest():
         :return:
         """
         left = 60
-        left = 80
         for i in range(left, image1.size[0]):
             for j in range(image1.size[1]):
                 if not self.is_pixel_equal(image1, image2, i, j):
