@@ -26,11 +26,11 @@ class Solution:
             return False
         for i, value in enumerate(numbers):
             # 检测i与numbers[i]是否相同，不相同则一直交换
-            # 交换的位置
+            # 交换的位置: i和numbers[i],对应的数值则为 numbers[i]和numbers[numbers[i]]
             while i != numbers[i]:
                 if numbers[i] == numbers[numbers[i]]:
                     duplication = numbers[i]
-                    return duplication, True
+                    return True
 
                 # 交换numbers[i] 与 numbers[ numbers[i] ]
                 temp = numbers[i]
@@ -44,5 +44,4 @@ numbers = [4, 3, 1, 0, 1, 5, 3]
 
 s = Solution()
 flag = s.duplicate(numbers, duplication=-1)
-flag = s.duplicate([], duplication=-1)
 print(flag)
