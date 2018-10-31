@@ -10,7 +10,7 @@ class Solution:
         :type head: ListNode
         :rtype: ListNode
         """
-        # pre->a->b->c->…链表，交换a、a节点即把a.next指向c(c=b.next)，b.next指向a，p.next指向b
+        # pre->a->b->c->…链表，交换a、b节点即把a.next指向c(c=b.next)，b.next指向a，p.next指向b
         pre = self
         pre.next = head
         while pre.next and pre.next.next:
