@@ -39,6 +39,7 @@ int Partition(SqList *L, int low, int high) {
     pivotkey = L->r[low];                               // 用子表的第一个记录作枢轴记录
     while (low < high) {                                // 从表的两端交替向中间扫描
 
+
         while (low < high && L->r[high] >= pivotkey) {
             high--;
         }
