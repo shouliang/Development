@@ -14,6 +14,8 @@
 最终可能会出现全1的情况，导致死循环。与0xffffffff相与，就可以消除负数的影响
 
 '''
+
+
 # coding=utf-8
 class Solution:
     def NumberOf1(self, n):
@@ -28,20 +30,27 @@ class Solution:
         return count
 
     def NumberOf1_v2(self, n):
-        # write code here
         count = 0
         if n < 0:
-            n = n & 0xffffffff
+            n = n & 0xffffffff  # 0xffffffff二进制形式是32个1：1111，1111，1111，1111，1111，1111，1111，1111
+                                # 可将负数变成正数，从而消除负数的影响
+                                # 因为负数最高位为1，不断右移后，最终会变成0xffffffff，与1相与始终为1，出导致死循环
         while n:
             count += 1
-            n = n &(n-1)
+            n = n & (n - 1)
         return count
 
 
-
 s = Solution()
-count = s.NumberOf1(11)
-print(count)
 
-count = s.NumberOf1_v2(11)
+# count = s.NumberOf1(11)
+# print(count)
+#
+# count = s.NumberOf1(-2)
+# print(count)
+
+# count = s.NumberOf1_v2(11)
+# print(count)
+#
+count = s.NumberOf1_v2(-2)
 print(count)
