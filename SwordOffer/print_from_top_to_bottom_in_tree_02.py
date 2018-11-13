@@ -1,6 +1,6 @@
 # coding=utf-8
 '''
-题目描述: 按层次打印二叉树
+题目描述: 分行按层次打印二叉树：结果放在二维数组中
 从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
 
 思路：使用双向队列完成。访问节点将其压入队列，在出队列的同时判断是否有左右子树，有的话将其分别进入队列，直到队列为空
@@ -16,37 +16,42 @@ class TreeNode:
 
 
 class Solution:
-    # 返回从上到下每个节点值列表，例：[1,2,3]
-    def PrintFromTopToBottom(self, root):
+    def Print(self, pRoot):
         # write code here
-        if root == None:
+        if not pRoot:
             return []
 
-        retData = []  # 定义最终返回的数组
-        deque = []  # 双向队列
+        resultArray = []      # 定义最终返回的数组：二维数组
+        deque = []            # 双向队列
 
-        level = 0  # 层数
-        levelNum = 1  # 每层节点数
+        currentLevelNodes = 1  # 当前层节点数，初始值为根节点，故为1
+        nextLevelNodes = 0     # 下一层节点数
+        currentValues = []     # 当前层所有节点的值
 
         # 首先根节点进入队列
-        deque.append(root)
-
+        deque.append(pRoot)
         while deque:
             treeNode = deque.pop()  # 利用队列先进先出的特性
-            if levelNum == 0:
-                retData.append([])
-                levelNum = levelNum - 1
+            currentLevelNodes -= 1  # 遍历一次当前层节点数减少1
 
-            retData[level].insert(0, treeNode.val)  # 在弹出首元素的同时压入这个元素相对应的左右子树
+            currentValues.append(treeNode.val)
 
             if treeNode.left:
                 deque.insert(0, treeNode.left)
-                levelNum = levelNum + 1
+                nextLevelNodes += 1
             if treeNode.right:
                 deque.insert(0, treeNode.right)
-                levelNum = levelNum + 1
-            level = level + 1
-        return retData
+                nextLevelNodes += 1
+
+            # 当前层节点数为零则表示遍历完毕，将下一层节点数赋值给当前节点数，以便遍历下一层，同时情况下一层节点数，以便重新计数
+            if currentLevelNodes == 0:
+                currentLevelNodes = nextLevelNodes
+                nextLevelNodes = 0
+
+                resultArray.append(currentValues)
+                currentValues = []
+
+        return resultArray
 
 
 s = Solution()
@@ -61,5 +66,7 @@ treeNode4 = TreeNode(5)
 treeNode1.left = treeNode3
 treeNode1.right = treeNode4
 
-retData = s.PrintFromTopToBottom(root)
-print()
+retData = s.Print(root)
+
+for i in retData:
+    print(i)
