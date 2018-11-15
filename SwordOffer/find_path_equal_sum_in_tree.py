@@ -1,4 +1,8 @@
 # -*- coding:utf-8 -*-
+'''
+输入一颗二叉树的跟节点和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。
+路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。(注意: 在返回值的list中，数组长度大的数组靠前)
+'''
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -26,8 +30,7 @@ class Solution:
 
         isLeaf = not pRoot.left and not pRoot.right
         if currentSum == expectNumber and isLeaf:
-            newPath = path[:]
-            self.resultArray.append(newPath)
+            self.resultArray.append(path[:])
 
         if pRoot.left:
 
