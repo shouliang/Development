@@ -33,19 +33,15 @@ class Solution:
 
         while deque:
             treeNode = deque.pop()  # 利用队列先进先出的特性
-            if levelNum == 0:
-                retData.append([])
-                levelNum = levelNum - 1
 
-            retData[level].insert(0, treeNode.val)  # 在弹出首元素的同时压入这个元素相对应的左右子树
+            retData.insert(0, treeNode.val)  # 在弹出首元素的同时压入这个元素相对应的左右子树
 
             if treeNode.left:
                 deque.insert(0, treeNode.left)
-                levelNum = levelNum + 1
+
             if treeNode.right:
                 deque.insert(0, treeNode.right)
-                levelNum = levelNum + 1
-            level = level + 1
+
         return retData
 
 
