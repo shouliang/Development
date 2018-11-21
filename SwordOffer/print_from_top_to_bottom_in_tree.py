@@ -1,6 +1,6 @@
 # coding=utf-8
 '''
-题目描述: 按层次打印二叉树
+题目描述: 不分行按层次打印二叉树: 结果放在一维数组中
 从上往下打印出二叉树的每个节点，同层节点从左至右打印
 
 思路：使用双向队列完成。访问节点将其压入队列，在出队列的同时判断是否有左右子树，有的话将其分别进入队列，直到队列为空
@@ -15,30 +15,28 @@ class TreeNode:
         self.right = None
 
 
-
 class Solution:
     # 返回从上到下每个节点值列表，例：[1,2,3]
-    def PrintFromTopToBottom(self, root):
-        # write code here
-        if root == None:
+    def PrintFromTopToBottom(self, pRoot):
+        if not pRoot:
             return []
 
-        retData = []  # 定义最终返回的数组
-        deque = []    # 双向队列
+        resultArray = []  # 定义最终返回的数组:一维数组
+        deque = []        # 双向队列
 
         # 首先根节点进入队列
-        deque.append(root)
+        deque.append(pRoot)
 
         while deque:
-            treeNode = deque.pop()        # 利用队列先进先出的特性
-            retData.append(treeNode.val)  # 在弹出首元素的同时压入这个元素相对应的左右子树
+            treeNode = deque.pop()            # 当前节点出队列，而后该节点的左右孩子节点进入队列，直至所有节点都已经出队列，队列为空
+            resultArray.append(treeNode.val)
 
             if treeNode.left:
                 deque.insert(0, treeNode.left)
             if treeNode.right:
                 deque.insert(0, treeNode.right)
 
-        return retData
+        return resultArray
 
 
 s = Solution()
@@ -54,7 +52,4 @@ treeNode1.left = treeNode3
 treeNode1.right = treeNode4
 
 retData = s.PrintFromTopToBottom(root)
-for value in retData:
-    print(value)
-
-
+print(retData)
