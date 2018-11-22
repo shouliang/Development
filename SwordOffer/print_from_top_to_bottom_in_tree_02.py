@@ -33,7 +33,6 @@ class Solution:
         while deque:
             treeNode = deque.pop()  # 利用队列先进先出的特性
             currentLevelNodes -= 1  # 遍历一次当前层节点数减少1
-
             currentValues.append(treeNode.val)
 
             if treeNode.left:
@@ -52,6 +51,7 @@ class Solution:
                 currentValues = []
 
         return resultArray
+
 
 
 s = Solution()
