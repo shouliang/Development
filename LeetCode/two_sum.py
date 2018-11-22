@@ -4,11 +4,6 @@
 
 class Solution:
     def twoSum(self, nums, target):
-        """
-        :param nums List[int]:
-        :param target int:
-        :return: List[int]
-        """
         hash_map = dict()
         for i, x in enumerate(nums):
             if target - x in hash_map:
