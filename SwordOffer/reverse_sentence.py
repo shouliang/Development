@@ -13,12 +13,12 @@ class Solution:
         if not s:
             return s
         s = list(s)
-        self.rerverse(s, 0, len(s) - 1)
+        self.Rerverse(s, 0, len(s) - 1)
         # 定义两个指针，用于翻转单词
         start, end = 0, 0
         while start < len(s):
             if end == len(s) or s[end] == ' ':
-                self.rerverse(s, start, end - 1)
+                self.Rerverse(s, start, end - 1)
                 end += 1
                 start = end
             else:
@@ -26,7 +26,7 @@ class Solution:
 
         return "".join(s)
 
-    def rerverse(self, s, start, end):
+    def Rerverse(self, s, start, end):
         while start < end:
             s[start], s[end] = s[end], s[start]
             start += 1
