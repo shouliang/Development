@@ -1,6 +1,11 @@
+# n个数，第1次找出n个数中最小的放到第1个位置
+#       第2次  找出后面n-1个数中最小的放到第2个位置
+#       第n-1次找出后面2个数中最小的放到第n-1个位置
+#       第n次  找出后面1个数中最小的放到第n个位置,故第n次可以不用做，即外层循环为n-1次
+
 def selectionSort(lyst):
     n = len(lyst)
-    for i in range(0, n - 1):
+    for i in range(0, n-1):  # 外层循环只需要n-1次
         minIndex = i
         for j in range(i + 1, n):
             if lyst[j] < lyst[minIndex]:
@@ -17,7 +22,7 @@ def swap(lyst, i, j):
     lyst[j] = temp
 
 
-lyst = [4, 5, 6, 1, 2, 3]
+lyst = [4, 5, 6, 1, 2, 3,7]
 
 selectionSort(lyst)
 print(lyst)
