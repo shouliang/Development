@@ -10,7 +10,7 @@ class Solution:
         # 先计算前半部分
         for i in range(1, len(A)):
             result[i] = result[i - 1] * A[i - 1]
-            
+
         # 计算后半部分，并和前半部分相乘
         temp = 1
         for i in range(len(A) - 1, -1, -1):
