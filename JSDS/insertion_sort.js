@@ -9,11 +9,10 @@ function insertSort(array) {
         }
 
         array[j + 1] = insertToItem
-
     }
 }
 
 
-nums = [4, 5, 6, 1, 2, 3]
-insertSort(nums)
-console.log(nums)
+array = [4, 5, 6, 1, 2, 3, 7]
+insertSort(array)
+console.log(array)
