@@ -5,14 +5,14 @@
 class Solution:
     def twoSum(self, nums, target):
         hash_map = dict()
-        for i, x in enumerate(nums):
-            if target - x in hash_map:
-                return [hash_map[target - x], i]
-            hash_map[x] = i  # key为数值，value为下标
+        for i, value in enumerate(nums):
+            if target - value in hash_map:
+                return [hash_map[target - value], i]
+            hash_map[value] = i  # key为数值，value为下标
 
 
 # test
 nums = [2, 7, 11, 15]
-target = 18
+target = 19
 solution = Solution()
 print(solution.twoSum(nums, target))
