@@ -23,7 +23,7 @@ class KthLargest:
 
 
 # Your KthLargest object will be instantiated and called as such:
-k = 3
+k = 2
 nums = [4, 5, 8, 2]
 obj = KthLargest(k, nums)
 obj.add(3)

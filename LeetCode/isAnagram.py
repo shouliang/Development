@@ -1,6 +1,5 @@
 '''
 有效字母的异位词：https://leetcode.com/problems/valid-anagram/description/
-
 思路：利用两个哈希表分别记录两个字符串中每个字母的数量，然后再判断这两个哈希表是否相等
 '''
 
