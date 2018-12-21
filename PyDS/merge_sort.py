@@ -1,52 +1,31 @@
-def mergeSort(lyst):
-    copyBuffer = Array(len(lyst))
-    mergeSortHelper(lyst, copyBuffer, 0, len(lyst) - 1)
+def merge_sort(alist):
+    merge_sort_helper(alist, 0, len(alist) - 1)
 
-def mergeSortHelper(lyst, copyBuffer, low, high):
+def merge_sort_helper(alist, low, high):
     if low < high:
-        middle = (low + high) // 2
-        mergeSortHelper(lyst, copyBuffer, low, middle)
-        mergeSortHelper(lyst, copyBuffer, middle + 1, high)
-        merge(lyst, copyBuffer, low, middle, high)
+        mid = low + (high - low) // 2
+        merge_sort_helper(alist, low, mid)
+        merge_sort_helper(alist, mid + 1, high)
+        merge(alist, low, mid, high)
 
-def merge(lyst, copyBuffer, low, middle, high):
-    i1 = low
-    i2 = middle + 1
-    for i in range(low, high + 1):
-        if i1 > middle:
-            copyBuffer[i] = lyst[i2]
-            i2 += 1
-        elif i2 > high:
-            copyBuffer[i] = lyst[i1]
-        elif lyst[i1] < lyst[i2]:
-            copyBuffer[i] = lyst[i1]
-            i1 += 1
+
+def merge(alist, low, mid, high):
+    i, j = low, mid + 1
+    tmp = []
+
+    while i <= mid and j <= high:
+        if alist[i] <= alist[j]:
+            tmp.append(alist[i])
+            i += 1
         else:
-            copyBuffer[i] = lyst[i2]
-            i2 += 1
-    for i in range(low, high + 1):
-        lyst[i] = copyBuffer[i]
+            tmp.append(alist[j])
+            j += 1
+    # start = i if i <= mid else j
+    # end = mid if i <= mid else high
+    # tmp.extend(alist[start:end + 1])
+    # alist[low:high + 1] = tmp
 
 
-class Array(object):
-    def __init__(self, capacity, fillValue=None):
-        self.items = list()
-        for count in range(capacity):
-            self.items.append(fillValue)
-
-    def __len__(self):
-        return len(self.items)
-
-    def __iter__(self):
-        return iter(self.items)
-
-    def __getitem__(self, index):
-        return self.items[index]
-
-    def __setitem__(self, index, newItem):
-        self.items[index] = newItem
-
-
-lyst = [4, 5, 6, 1, 2, 3, 8, 7]
-mergeSort(lyst)
-print(lyst)
+a1 = [3, 5, 6, 7, 8]
+merge_sort(a1)
+print(a1)
