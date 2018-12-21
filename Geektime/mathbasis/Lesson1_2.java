@@ -1,5 +1,3 @@
-import java.math.BigInteger;
-
 public class Lesson1_2 {
    /**
     * @Description: 向左移位
