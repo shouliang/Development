@@ -3,7 +3,6 @@ def mergeSort(lyst):
 
 
 def mergeSortHelper(lyst, low, high):
-    # print('low,high ', low, high)
     if low < high:
         middle = (low + high) // 2
         mergeSortHelper(lyst, low, middle)
