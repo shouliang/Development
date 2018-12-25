@@ -3,12 +3,11 @@ function mergeSort(alist) {
 }
 
 function mergeSortHelper(alist, low, high) {
-    if (low < high) {
-        var mid = Math.floor((low + high) / 2);
-        mergeSortHelper(alist, low, mid);
-        mergeSortHelper(alist, mid + 1, high);
-        merge(alist, low, mid, high);
-    }
+    if (low == high) return;
+    var mid = Math.floor((low + high) / 2);
+    mergeSortHelper(alist, low, mid);
+    mergeSortHelper(alist, mid + 1, high);
+    merge(alist, low, mid, high);
 }
 
 function merge(alist, low, mid, high) {
@@ -33,7 +32,7 @@ function merge(alist, low, mid, high) {
         j = j + 1;
     }
 
-    for(var k=0,i=low; i<=high;i++,k++) {
+    for (var k = 0, i = low; i <= high; i++, k++) {
         alist[i] = tmp[k];
     }
 
