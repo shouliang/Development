@@ -1,17 +1,15 @@
 def mergeSort(lyst):
-    mergeSortHelper(lyst, 0, len(lyst) - 1)
+    copyBuffer = Array(len(lyst))
+    mergeSortHelper(lyst, copyBuffer, 0, len(lyst) - 1)
 
-
-def mergeSortHelper(lyst, low, high):
+def mergeSortHelper(lyst, copyBuffer, low, high):
     if low < high:
         middle = (low + high) // 2
-        mergeSortHelper(lyst, low, middle)
-        mergeSortHelper(lyst, middle + 1, high)
-        merge(lyst, low, middle, high)
+        mergeSortHelper(lyst, copyBuffer, low, middle)
+        mergeSortHelper(lyst, copyBuffer, middle + 1, high)
+        merge(lyst, copyBuffer, low, middle, high)
 
-
-def merge(lyst, low, middle, high):
-    copyBuffer = Array(len(lyst))
+def merge(lyst, copyBuffer, low, middle, high):
     i1 = low
     i2 = middle + 1
     for i in range(low, high + 1):
@@ -26,7 +24,6 @@ def merge(lyst, low, middle, high):
         else:
             copyBuffer[i] = lyst[i2]
             i2 += 1
-
     for i in range(low, high + 1):
         lyst[i] = copyBuffer[i]
 

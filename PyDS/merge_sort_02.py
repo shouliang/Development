@@ -1,55 +1,37 @@
-def mergeSort(lyst):
-    mergeSortHelper(lyst, 0, len(lyst) - 1)
+def merge_sort(alist):
+    if not alist: return [];  # 错误处理
+    if len(alist) == 1: return alist;  # 递归终止条件
+
+    mid = (len(alist)) // 2  # 数组一分为二
+    left = merge_sort(alist[:mid])
+    right = merge_sort(alist[mid:])
+
+    left = merge_sort(left)  # 嵌套递归调用左右部分
+    right = merge_sort(right)
+    return merge(left, right)  # 合并左右有序的数组
 
 
-def mergeSortHelper(lyst, low, high):
-    print('low,high ', low, high)
-    if low < high:
-        middle = (low + high) // 2
-        mergeSortHelper(lyst, low, middle)
-        mergeSortHelper(lyst, middle + 1, high)
-        merge(lyst, low, middle, high)
-
-
-def merge(lyst, low, middle, high):
-    copyBuffer = Array(len(lyst))
-    i1 = low
-    i2 = middle + 1
-    for i in range(low, high + 1):
-        if i1 > middle:
-            copyBuffer[i] = lyst[i2]
-            i2 += 1
-        elif i2 > high:
-            copyBuffer[i] = lyst[i1]
-        elif lyst[i1] < lyst[i2]:
-            copyBuffer[i] = lyst[i1]
-            i1 += 1
+def merge(left, right):
+    i, j = 0, 0
+    merged = []
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            merged.append(left[i])
+            i += 1
         else:
-            copyBuffer[i] = lyst[i2]
-            i2 += 1
-    for i in range(low, high + 1):
-        lyst[i] = copyBuffer[i]
+            merged.append(right[j])
+            j += 1
+
+    while i < len(left):
+        merged.append(left[i])
+        i += 1
+    while j < len(right):
+        merged.append(right[j])
+        j += 1
+    return merged  # 合并后的数组是一个新的数组
 
 
-class Array(object):
-    def __init__(self, capacity, fillValue=None):
-        self.items = list()
-        for count in range(capacity):
-            self.items.append(fillValue)
-
-    def __len__(self):
-        return len(self.items)
-
-    def __iter__(self):
-        return iter(self.items)
-
-    def __getitem__(self, index):
-        return self.items[index]
-
-    def __setitem__(self, index, newItem):
-        self.items[index] = newItem
-
-
-lyst = [4, 5, 6, 1, 2, 3, 8, 7]
-mergeSort(lyst)
-print(lyst)
+alist = [6, 4, 5, 1, 3]
+# 返回排序好的新数组
+sorted = merge_sort(alist)
+print(sorted)

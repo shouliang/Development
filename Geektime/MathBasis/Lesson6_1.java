@@ -69,7 +69,7 @@ public class Lesson6_1 {
     }
 
     public static void main(String[] args) {
-        int[] to_sort = {3434, 3356, 67, 12334, 878667, 387,};
+        int[] to_sort = {3, 5, 6, 7, 8, 1};
         int[] sorted = merge_sort(to_sort);
 
         for (int i = 0; i < sorted.length; i++) {
