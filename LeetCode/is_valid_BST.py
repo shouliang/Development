@@ -1,6 +1,7 @@
 # 验证是否是二叉搜索树
 # 何为二叉搜索树：在树中的任意一个节点，其左子树中的每个节点的值，都要小于这个节点的值，而右子树中的每个结点的值，都要大于这个节点的值
 # 思路：中序遍历二叉树后，则已排序好，但此处可通过比较当前节点和前驱节点的大小来判定
+# https://leetcode.com/problems/validate-binary-search-tree/
 class Solution:
     def isValidBST(self, root):
         """
