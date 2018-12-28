@@ -44,22 +44,21 @@ class Solution:
         :type M: List[List[int]]
         :rtype: int
         """
-        n, result = len(M), 0
+        n = len(M)
+        result = 0
         visited = [False] * n
-        for i in range(n):
-            if visited[i]:
-                continue
-            self.dfs(M, i, visited)
-            result += 1
+        for i in range(n):       # 对每一个未访问过的顶点进行深度遍历
+            if not visited[i]:
+                self.dfs(M, i, visited)
+                result += 1      # 某一个顶点深度遍历完毕后，朋友圈个数自增1
         return result
 
-    def dfs(self, M, v, visited):
-        visited[v] = True
+    def dfs(self, M, start, visited):
+        visited[start] = True
 
-        for i in range(len(M)):
-            if not M[v][i] or visited[i]:
-                continue
-            self.dfs(M, i, visited)
+        for i in range(len(M)):  # 遍历顶点与start相邻的顶点，且此顶点未被访问过
+            if M[start][i] and visited[i] == False:
+                self.dfs(M, i, visited)
 
 
 M1 = [[1, 1, 0],
