@@ -10,6 +10,7 @@ def dfs(graph,start):
             stack.extend(graph[vertex] - visited)
     return visited
 
+# 深度搜索--递归版
 def def_recursive(graph,start,visited=None):
     if visited is None:
         visited = set()
