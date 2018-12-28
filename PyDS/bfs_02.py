@@ -1,5 +1,6 @@
 # https://eddmann.com/posts/depth-first-search-and-breadth-first-search-in-python/
-# 广度搜索
+# 广度优先搜索
+
 def bfs(graph, start):
     visited, queue = set(), [start]
     while queue:
