@@ -46,7 +46,7 @@ class Solution:
                         left += 1
                     while left < right and nums[right] == nums[right - 1]:
                         right -= 1
-
+                    # diff == 0时，left大一点，right小一点，还是有可能等于target的
                     left += 1
                     right -= 1
 
