@@ -16,6 +16,8 @@
 然后就是跳过重复数字的步骤了，两个指针都需要检测重复数字。如果两数之和小于target，则我们将左边那个指针i右移一位，使得指向的数字增大一些。
 同理，如果两数之和大于target，则我们将右边那个指针j左移一位，使得指向的数字减小一些
 
+简单版：先排序，固定第1个，找出第2个、第3个，通过双指针的方式，逐渐缩小范围，中间涉及到相邻元素判重的问题等细节
+
 '''
 
 
@@ -26,20 +28,20 @@ class Solution:
         :rtype: List[List[int]]
         """
         res = []
-        nums.sort(),  # 对原数组进行排序
-        target = 0
-        for i in range(len(nums) - 2):  # 第一层循环遍历到倒数第三个即可
-            if i > 0 and nums[i] == nums[i - 1]:  # 相邻的两个相等则直接跳过
+        nums.sort()   # 对原数组进行排序
+        target = 0    # target设置为0，因为是此题要求，实际上可以改成任何数字
+        for i in range(len(nums) - 2):             # 第一层循环遍历到倒数第三个即可， 第一层循环固定第1个数字
+            if i > 0 and nums[i] == nums[i - 1]:   # 相邻的两个相等则直接跳过,防止出现重复
                 continue
-            left, right = i + 1, len(nums) - 1
-            while left < right:  # 双指针，逐渐缩小范围
+            left, right = i + 1, len(nums) - 1     # 注意此处left是从i+1开始的
+            while left < right:                    # 双指针，逐渐缩小范围，双指针确定第2个、第3个数
                 diff = (nums[i] + nums[left] + nums[right]) - target
                 if diff < 0:
                     left += 1
                 elif diff > 0:
                     right -= 1
-                else:
-                    res.append((nums[i], nums[left], nums[right]))
+                elif diff == 0:
+                    res.append((nums[i], nums[left], nums[right]))        # 符合条件，加入结果集
                     while left < right and nums[left] == nums[left + 1]:  # 相邻的元素相等的则直接跳过
                         left += 1
                     while left < right and nums[right] == nums[right - 1]:
