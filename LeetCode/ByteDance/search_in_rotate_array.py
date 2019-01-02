@@ -9,18 +9,20 @@ class Solution:
         right = len(nums) - 1
         while left <= right:
             mid = left + (right - left) // 2
-            if target == nums[mid]:
-                return mid
-            elif target < nums[mid]:
-                if target > nums[left]:
-                    right = mid
-                elif target < nums[left]:
-                    if target < nums[right]:
-                        left = mid
-                    else:
-                        return -1
+            # mid左端是排好序的
+            if nums[mid] >= nums[left]:
+                # 因为前面第11行的判断已经说明nums[mid] != target了，所以不再考虑nums[mid] = target的情况
+                if nums[mid] > target and nums[left] <= target:
+                    right = mid - 1
+                else:
+                    left = mid + 1
+            # 下面的else等同于elif nums[mid] <= nums[right]
             else:
-                left = mid
+                if nums[mid] < target and nums[right] >= target:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+
         return -1
 
 
