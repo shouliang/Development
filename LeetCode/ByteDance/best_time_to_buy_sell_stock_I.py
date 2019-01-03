@@ -8,6 +8,7 @@
 然后每次选较大的利润来更新。当遍历完成后当前利润即为所求
 '''
 
+
 class Solution:
     def maxProfit(self, prices):
         """
@@ -18,8 +19,8 @@ class Solution:
         minPrice = prices[0]
         maxProfit = 0
         for i in range(1, len(prices)):
-            minPrice = min(minPrice, prices[i])
-            maxProfit = max(maxProfit, prices[i] - minPrice)
+            minPrice = min(minPrice, prices[i])               # 求i前面的最小值
+            maxProfit = max(maxProfit, prices[i] - minPrice)  # 求i前面的最大差值即利润
         return maxProfit
 
 
