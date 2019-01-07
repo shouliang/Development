@@ -2,8 +2,10 @@ node_modules
 cmake-build-debug
 CMakeLists.txt
 .idea
+.vscode
 venv
 __pycache__
 out
 *.class
 *.iml
+
