@@ -6,7 +6,6 @@
 j 继续往后走，同时 i 的位置需要挪到重复字符之后，即 k+1 处。直到遍历到字符串的最后
 '''
 
-
 class Solution:
     def lengthOfLongestSubstring(self, s):
         """
@@ -16,14 +15,14 @@ class Solution:
         if not s:
             return 0
         longest = 0
-        left = -1
+        i = 0
         hash_map = dict()
-        for i in range(len(s)):
-            if s[i] in hash_map and hash_map[s[i]] > left:
-                left = hash_map[s[i]]
-
-            hash_map[s[i]] = i 
-            longest = longest if longest > i - left  else i - left 
+        for j in range(len(s)):
+            if s[j] in hash_map and hash_map[s[j]] + 1 > i:  # try to extend the range[i,j]
+                i = hash_map[s[j]] + 1                       # hash_map[s[j]] + 1 确定重新出现的字符在窗口内
+                
+            hash_map[s[j]] = j
+            longest = longest if longest > j - i + 1 else j - i + 1  # 每次更新最长子串的长度
 
         return longest
 
