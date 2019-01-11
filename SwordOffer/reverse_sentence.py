@@ -16,8 +16,8 @@ class Solution:
         self.Rerverse(s, 0, len(s) - 1)
         # 定义两个指针，用于翻转单词
         start, end = 0, 0
-        while start < len(s):
-            if end == len(s) or s[end] == ' ':
+        while start < len(s) and end < len(s):
+            if s[end] == ' ':
                 self.Rerverse(s, start, end - 1)
                 end += 1
                 start = end

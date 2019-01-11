@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-// 合并排序
+// 归并排序
 public class Lesson6_1 {
 
     /**
