@@ -1,5 +1,5 @@
 def merge_sort(alist):
-    if not alist: return [];
+    if not alist: return []
     merge_sort_helper(alist, 0, len(alist) - 1)
 
 

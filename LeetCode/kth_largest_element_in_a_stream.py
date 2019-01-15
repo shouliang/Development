@@ -5,7 +5,7 @@ class KthLargest:
     def __init__(self, k, nums):
         self.k = k
         self.nums = nums
-        self.topNums = [] * k
+        self.topNums = [] 
         for num in nums:
             self.add(num)
 

@@ -1,6 +1,8 @@
 def merge_sort(alist):
-    if not alist: return [];  # 错误处理
-    if len(alist) == 1: return alist;  # 递归终止条件
+    if not alist:
+        return []  # 错误处理
+    if len(alist) == 1:
+        return alist  # 递归终止条件
 
     mid = (len(alist)) // 2  # 数组一分为二
     left = merge_sort(alist[:mid])
