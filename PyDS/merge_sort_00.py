@@ -27,7 +27,7 @@ def merge(alist, low, mid, high):
     while start < end:
         temp.append(alist[start])
         start += 1
-    for i in range(low, high):
+    for i in range(low, high+1):
         alist[i] = temp[i]
 
 
