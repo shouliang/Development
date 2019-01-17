@@ -54,11 +54,7 @@ def reverseStr(s, start, end):
         end -= 1
 
 
-s = "the sky is blue"
-s = " "
-solution = Solution()
-ss = solution.reverseWords(s)
-print(ss)
+ 
 
 
 s = "   the sky is blue   "
