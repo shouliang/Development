@@ -1,6 +1,6 @@
 # coding=utf-8
 # 有辅助数组的做法
-def quicksort(array):
+def quick_sort(array):
     if not array:
         return []
 
@@ -13,8 +13,8 @@ def quicksort(array):
         else:
             greater.append(value)
 
-    return quicksort(less) + [pivot_value] + quicksort(greater)
+    return quick_sort(less) + [pivot_value] + quick_sort(greater)
 
 arr = [3, 7, 8, 5, 2, 1, 9, 5, 4]
-print(quicksort(arr))
+print(quick_sort(arr))
 
