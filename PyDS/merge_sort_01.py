@@ -1,3 +1,4 @@
+# 归并排序：先分解再合并
 def merge_sort(alist):
     if not alist:
         return []

@@ -1,4 +1,5 @@
 # coding=utf-8
+# 快速排序：找到合适的分区点，左边都比其小，右边都比其大
 def quick_sort(alist):
     quick_sort_helper(alist, 0, len(alist)-1)
 
@@ -32,7 +33,7 @@ def partition(array, low, high):
     return i
 
 
-# 交换数组中两个下标对于的元素
+# 交换数组中两个下标对应的元素
 def swap(alist, i, j):
     temp = alist[i]
     alist[i] = alist[j]
