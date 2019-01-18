@@ -23,38 +23,38 @@ class Solution:
         if not pRoot:
             return []
 
-        resultArray = []                            # 定义最终返回的数组:二维数组
-        currentLevelNodes, nextLevelNodes = [], []  # 保存当前节点和下一层节点的栈
-        flag = True                                 # 从左往右入栈还是从右往左的标志，交替进行, 刚开始是从左往右
-        currentLevelNodes.append(pRoot)             # 首先根节点进入栈
+        results = []                                    # 定义最终返回的数组:二维数组
+        current_levle_nodes, next_levle_nodes = [], []  # 保存当前节点和下一层节点的栈
+        flag = True                                     # 从左往右入栈还是从右往左的标志，交替进行, 刚开始是从左往右
+        current_levle_nodes.append(pRoot)               # 首先根节点进入栈
 
-        currentValues = []                          # 当前层所有节点的值
-        while currentLevelNodes:
-            treeNode = currentLevelNodes.pop()
+        current_values = []                             # 当前层所有节点的值
+        while current_levle_nodes:
+            treeNode = current_levle_nodes.pop()
 
-            currentValues.append(treeNode.val)
+            current_values.append(treeNode.val)
 
             # 从左往右入栈
             if flag:
                 if treeNode.left:
-                    nextLevelNodes.append(treeNode.left)
+                    next_levle_nodes.append(treeNode.left)
                 if treeNode.right:
-                    nextLevelNodes.append(treeNode.right)
+                    next_levle_nodes.append(treeNode.right)
             else:
                 if treeNode.right:
-                    nextLevelNodes.append(treeNode.right)
+                    next_levle_nodes.append(treeNode.right)
                 if treeNode.left:
-                    nextLevelNodes.append(treeNode.left)
+                    next_levle_nodes.append(treeNode.left)
 
             # 遍历完当前层需要做的工作：1.变换标志 2.遍历下一层: 将下一层的栈赋值给当前层，并清空下一层，以便重新计数 3.将当前层的所有值的数组添加到最终的返回数组中，并清空当前层的值的数组
-            if len(currentLevelNodes) == 0:
-                flag = not flag                    # 变换标志
-                currentLevelNodes = nextLevelNodes # 将下一层赋值给当前层，从而继续遍历当前层
-                nextLevelNodes = []                # 清空下一层的节点数，从而重新计数
+            if len(current_levle_nodes) == 0:
+                flag = not flag                          # 变换标志
+                current_levle_nodes = next_levle_nodes   # 将下一层赋值给当前层，从而继续遍历当前层
+                next_levle_nodes = []                    # 清空下一层的节点数，从而重新计数
 
-                resultArray.append(currentValues)
-                currentValues = []
-        return resultArray
+                results.append(current_values)
+                current_values = []
+        return results
 
 
 s = Solution()

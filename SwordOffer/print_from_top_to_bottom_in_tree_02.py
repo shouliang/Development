@@ -21,37 +21,36 @@ class Solution:
         if not pRoot:
             return []
 
-        resultArray = []      # 定义最终返回的数组：二维数组
-        deque = []            # 双向队列
+        results = []      # 定义最终返回的数组：二维数组
+        dequeue = []      # 双向队列
 
-        currentLevelNodes = 1  # 当前层节点数，初始值为根节点，故为1
-        nextLevelNodes = 0     # 下一层节点数
-        currentValues = []     # 当前层所有节点的值
+        current_level_nodes = 1  # 当前层节点数，初始值为根节点，故为1
+        next_level_nodes = 0     # 下一层节点数
+        current_values = []      # 当前层所有节点的值
 
         # 首先根节点进入队列
-        deque.append(pRoot)
-        while deque:
-            treeNode = deque.pop()  # 利用队列先进先出的特性
-            currentLevelNodes -= 1  # 遍历一次当前层节点数减少1
-            currentValues.append(treeNode.val)
+        dequeue.append(pRoot)
+        while dequeue:
+            treeNode = dequeue.pop()  # 利用队列先进先出的特性
+            current_level_nodes -= 1  # 遍历一次当前层节点数减少1
+            current_values.append(treeNode.val)
 
             if treeNode.left:
-                deque.insert(0, treeNode.left)
-                nextLevelNodes += 1
+                dequeue.insert(0, treeNode.left)
+                next_level_nodes += 1
             if treeNode.right:
-                deque.insert(0, treeNode.right)
-                nextLevelNodes += 1
+                dequeue.insert(0, treeNode.right)
+                next_level_nodes += 1
 
             # 当前层节点数为零则表示遍历完毕，将下一层节点数赋值给当前节点数，以便遍历下一层，同时情况下一层节点数，以便重新计数
-            if currentLevelNodes == 0:
-                currentLevelNodes = nextLevelNodes
-                nextLevelNodes = 0
+            if current_level_nodes == 0:
+                current_level_nodes = next_level_nodes
+                next_level_nodes = 0
 
-                resultArray.append(currentValues)
-                currentValues = []
+                results.append(current_values)
+                current_values = []
 
-        return resultArray
-
+        return results
 
 
 s = Solution()

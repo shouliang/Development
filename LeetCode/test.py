@@ -53,6 +53,7 @@ def quick_sort(alist):
 
 
 def qucik_sort_helper(alist, low, high):
+    print(low,high)
     if low >= high:
         return
     pivot = partition(alist, low, high)
@@ -77,6 +78,7 @@ def swap(alist, i, j):
 
 alist = [5, 4, 8, 7, 1, 2, 9]
 quick_sort(alist)
+print('after quick_sort')
 print(alist)
 
 
@@ -113,4 +115,5 @@ def merge(alist, low, mid, high):
 
 alist = [5, 4, 8, 7, 1, 2, 9]
 merge_sort(alist)
+print('after merge_sort')
 print(alist)

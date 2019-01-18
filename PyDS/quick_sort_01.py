@@ -1,11 +1,17 @@
 # coding=utf-8
-# 快速排序：找到合适的分区点，左边都比其小，右边都比其大
+''' 该方法的基本思想是：
+1．先从数列中取出一个数作为基准数。
+2．分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。
+3．再对左右区间重复第二步，直到各区间只有一个数。
+'''
+
+
 def quick_sort(alist):
     quick_sort_helper(alist, 0, len(alist)-1)
 
 
 def quick_sort_helper(alist, low, high):
-    if low >= high:
+    if low >= high:                     # 亦可写成 low < high 的条件下，对low到high之间的元素进行排序
         return
     # 获取分区点
     pivot = partition(alist, low, high)

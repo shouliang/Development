@@ -21,22 +21,22 @@ class Solution:
         if not pRoot:
             return []
 
-        resultArray = []  # 定义最终返回的数组:一维数组
-        deque = []        # 双向队列
+        result = []  # 定义最终返回的数组:一维数组
+        dequeue = [] # 双向队列
 
         # 首先根节点进入队列
-        deque.append(pRoot)
+        dequeue.append(pRoot)
 
-        while deque:
-            treeNode = deque.pop()            # 当前节点出队列，而后该节点的左右孩子节点进入队列，直至所有节点都已经出队列，队列为空
-            resultArray.append(treeNode.val)
+        while dequeue:
+            treeNode = dequeue.pop()             # 当前节点出队列，而后该节点的左右孩子节点进入队列，直至所有节点都已经出队列，队列为空
+            result.append(treeNode.val)
 
             if treeNode.left:
-                deque.insert(0, treeNode.left)
+                dequeue.insert(0, treeNode.left)  # 插入到双向队列头部
             if treeNode.right:
-                deque.insert(0, treeNode.right)
+                dequeue.insert(0, treeNode.right)
 
-        return resultArray
+        return result
 
 
 s = Solution()
