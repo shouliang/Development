@@ -16,20 +16,20 @@ def quick_sort_helper(alist, low, high):
 
 
 # 分区点获取函数：分区点的左边都小于分区点所在位置的值，分区点右边都大于分区点所在位置的值，另这只是其中一趟排序情况
-def partition(array, low, high):
+def partition(alist, low, high):
     # 通常选择最后一个位置high作为临时分区点，当然也可以选择中间位置，然后再与最后一个位置交换亦可
-    pivot_value = array[high]
+    pivot_value = alist[high]
     i = low
 
     # 遍历low至high-1,将小于分区点的值，放在合适的位置i上，i从low开始，每次交换后，i自增1，代表下一个可能交换的位置
     # 遍历完毕后，将high与正确的分区点交换，达到分区点左边都比其小，右边都比其大的目的
     for j in range(low, high):
-        if array[j] < pivot_value:
-            swap(array, i, j)
+        if alist[j] < pivot_value:
+            swap(alist, i, j)
             i += 1  # 交换i,j后自增1，代表下一个可能交换的位置
 
     # 将分区点放到最后正确的位置上
-    swap(array, i, high)
+    swap(alist, i, high)
     return i
 
 
