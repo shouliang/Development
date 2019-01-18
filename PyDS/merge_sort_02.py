@@ -1,18 +1,23 @@
 def merge_sort(alist):
     if not alist:
-        return []  # 错误处理
+        return []
     if len(alist) == 1:
         return alist  # 递归终止条件
 
-    mid = (len(alist)) // 2  # 数组一分为二
+    # 数组一分为二
+    mid = (len(alist)) // 2
     left = merge_sort(alist[:mid])
     right = merge_sort(alist[mid:])
 
-    left = merge_sort(left)  # 嵌套递归调用左右部分
+    # 嵌套递归调用左右部分
+    left = merge_sort(left)
     right = merge_sort(right)
-    return merge(left, right)  # 合并左右有序的数组
+
+    # 合并左右有序的数组
+    return merge(left, right)
 
 
+# 合并两个有序的数组为一个有序的数组
 def merge(left, right):
     i, j = 0, 0
     merged = []
