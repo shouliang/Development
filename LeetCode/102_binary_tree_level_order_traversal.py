@@ -28,14 +28,16 @@ class Solution(object):
         results, dequeue = [], []   # 双向队列
         dequeue.append(root)        # 根节点进入双向队列
         while dequeue:
+            level_size = len(dequeue)
             cur_level = []
-            for i in range(len(dequeue)):
-                treeNode = dequeue.pop()  # 在双向队列尾部弹出节点的同时，将其左右分支依次插入到双向队列的头部
-                cur_level.append(treeNode.val)
-                if treeNode.left:
-                    dequeue.insert(0, treeNode.left)
-                if treeNode.right:
-                    dequeue.insert(0, treeNode.right)
+            for _ in range(level_size):
+                node = dequeue.pop()  # 在双向队列尾部弹出节点的同时，将其左右分支依次插入到双向队列的头部
+                cur_level.append(node.val)
+                if node.left:
+                    dequeue.insert(0, node.left)
+                if node.right:
+                    dequeue.insert(0, node.right)
+
             results.append(cur_level)
         return results
 
