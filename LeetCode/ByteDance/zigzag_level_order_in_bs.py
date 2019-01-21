@@ -42,7 +42,7 @@ class Solution(object):
         dequeue.append(root)
         while dequeue:
             cur_level = []
-            for neigborhood in range(len(dequeue)):
+            for i in range(len(dequeue)):
                 treeNode = dequeue.pop()  # 在弹出节点的同时，将其左右分支依次插入到双向队列的头部
                 cur_level.append(treeNode.val)
                 if treeNode.left:
