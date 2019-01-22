@@ -11,7 +11,7 @@
     挑战：以 O(1) 的时间复杂度实现所有操作。
 '''
 
-
+# TODO: 未做完，暂时不想做了
 class AllOne:
 
     def __init__(self):
