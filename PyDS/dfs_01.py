@@ -1,3 +1,4 @@
+# https://eddmann.com/posts/depth-first-search-and-breadth-first-search-in-python/
 # https://www.programiz.com/dsa/graph-dfs
 '''
 The pseudocode for DFS is shown below.
@@ -19,21 +20,57 @@ init() {
 }
 '''
 
-def dfs(graph, start,visited =None):
+
+'''
+极客时间-算法面试-DFS模板-递归版本 
+visited = set()
+def dfs(node,visited):
+    visited.add(node)
+    # process current node here
+
+    if next_node in node.children():
+        if next_node not in visited:
+            dfs(next_node, visited) 
+'''
+
+
+# 深度遍历--递归版
+def dfs(graph, start, visited=None):
     if visited is None:
         visited = set()
     visited.add(start)
-    print(start)
-    for next in graph[start] - visited:
-        dfs(graph, next, visited)    # 递归访问下一个顶点
+
+    for next in graph[start]:         # 遍历当前元素所有相邻但未访问过的元素
+        if next not in visited:
+            dfs(graph, next, visited) # 将其中一个相邻但未访问过的元素，作为当前元素，继续递归遍历其相邻但未访问的元素
     return visited
 
-graph = {
-    '0':set(['1','2']),
-    '1':set(['0','3','4']),
-    '2':set(['0']),
-    '3':set(['1']),
-    '4':set(['2','3'])
-}
 
-dfs(graph,'0')
+# 深度遍历--非递归版，
+# 与广度遍历的区别就是使用栈，从而利用栈的先进后出特点，也即后进先出
+def _dfs(graph, start):
+    visited, stack = set(), []
+    visited.add(start)
+    stack.append(start)
+
+    while stack:
+        vertex = stack.pop()        # 取栈顶元素，注意此处是pop()是后进先出，不同于bfs的pop(0)
+        print(vertex)
+        for next in graph[vertex]:  # 遍历相邻但未访问过的元素，并入栈
+            if next not in visited:
+                visited.add(next)
+                stack.append(next)
+
+    return visited
+
+
+# 基于邻接表
+graph = {'A': set(['B', 'C']),
+         'B': set(['A', 'D', 'E']),
+         'C': set(['A', 'F']),
+         'D': set(['B']),
+         'E': set(['B', 'F']),
+         'F': set(['C', 'E'])}
+
+visited = dfs(graph, 'A')
+visited = _dfs(graph, 'A')

@@ -1,33 +1,62 @@
-# https://eddmann.com/posts/depth-first-search-and-breadth-first-search-in-python/
+# https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
 # 深度优先搜索
 
-
-def dfs(graph, start):
-    visited, stack = set(), [start]
-    while stack:
-        vertex = stack.pop()
-        if vertex not in visited:
-            print(vertex)
-            visited.add(vertex)
-            stack.extend(graph[vertex] - visited)
-    return visited
-
-# 深度搜索--递归版
-def _dfs(graph, start, visited=None):
-    if visited is None:
-        visited = set()
-    visited.add(start)
-    for next in graph[start] - visited:
-        _dfs(graph, next, visited)
-    return visited
+# Python program to print DFS traversal from a
+# given given graph
+from collections import defaultdict
 
 
-# 基于邻接表
-graph = {'A': set(['B', 'C']),
-         'B': set(['A', 'D', 'E']),
-         'C': set(['A', 'F']),
-         'D': set(['B']),
-         'E': set(['B', 'F']),
-         'F': set(['C', 'E'])}
+# This class represents a directed graph using
+# adjacency list representation
+class Graph:
 
-visited = dfs(graph, 'A')
+    # Constructor
+    def __init__(self):
+
+        # default dictionary to store graph
+        self.graph = defaultdict(list)
+
+    # function to add an edge to graph
+    def addEdge(self, u, v):
+        self.graph[u].append(v)
+
+    # A function used by DFS
+    def DFSUtil(self, v, visited):
+
+        # Mark the current node as visited and print it
+        visited[v] = True
+        print(v)
+
+        # Recur for all the vertices adjacent to this vertex
+        for i in self.graph[v]:
+            if visited[i] == False:
+                self.DFSUtil(i, visited)
+
+            # The function to do DFS traversal. It uses
+
+    # recursive DFSUtil()
+    def DFS(self, v):
+
+        # Mark all the vertices as not visited
+        visited = [False] * (len(self.graph))
+
+        # Call the recursive helper function to print
+        # DFS traversal
+        self.DFSUtil(v, visited)
+
+    # Driver code
+
+
+# Create a graph given in the above diagram
+g = Graph()
+g.addEdge(0, 1)
+g.addEdge(0, 2)
+g.addEdge(1, 2)
+g.addEdge(2, 0)
+g.addEdge(2, 3)
+g.addEdge(3, 3)
+
+print("Following is DFS from (starting from vertex 2)")
+g.DFS(2)
+
+# This code is contributed by Neelam Yadav

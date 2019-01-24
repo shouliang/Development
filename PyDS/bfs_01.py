@@ -10,8 +10,9 @@ while Q is non-empty
 '''
 
 '''
-极客时间-算法面试-BFS模板，BFS只有使用队列这种数据结构的非递归版本一种，无递归版本，而DFS有递归和非递归两种版本
-def BFS(graph, start):
+极客时间-算法面试-bfs模板，bfs只有使用队列这种数据结构的非递归版本一种，无递归版本，而dfs有递归和非递归两种版本
+bfs利用队列先进先出的特点，在弹出节点以后，将该节点的相邻结点再加入队列，在二叉树中其实就是左右孩子
+def bfs(graph, start):
     visited,queue = set(),[]
     visited.add(start)
     queue.append(start)
@@ -21,7 +22,7 @@ def BFS(graph, start):
         visited.add(node)
 
         process(node)                         # 处理结点：譬如打印结点或者将结点添加到一个数组里面存储起来
-        nodes = generate_related_nodes(node)  # 遍历结点的所有未访问的相邻结点，并相继放入队列
+        nodes = generate_related_nodes(node)  # 遍历结点的所有未访问的相邻结点，并相继入队列
         queue.append(nodes)
 '''
 
