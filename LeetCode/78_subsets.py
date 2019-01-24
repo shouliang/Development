@@ -7,8 +7,8 @@
 def subsets(nums):
     if not nums:
         return None
-    subset, result = [], []
-    dfs(nums, 0, subset, result)
+    path, result = [], []
+    dfs(nums, 0, path, result)
     return result
 
 
