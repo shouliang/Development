@@ -23,23 +23,22 @@ class Solution:
         :rtype: List[List[int]]
         """
         candidates.sort()  # 先排序，方便后来剪枝
-        results = []  # 最终解的集合
-        path = []  # 其中一个解
-        self.DFS(candidates, 0, target, path, results)
-        return results
+        result = []        # 最终解的集合
+        path = []          # 其中一个解
+        self.DFS(candidates, 0, target, path, result)
+        return result
 
-    def DFS(self, candidates, cur, target, path, results):
-        if target == 0:  # 递归终止条件：1.找到一个解添加到结果集返回，或者2.不满足条件即：target<0，也起到剪枝的作用，直接返回
-            results.append(path[:])  # 满足条件将其中的一个解加入结果集，此处需要注意Python的语法是解的一个副本
+    def DFS(self, candidates, cur, target, path, result):
+        if target == 0:             # 递归终止条件：1.找到一个解添加到结果集返回，或者2.不满足条件即：target<0，也起到剪枝的作用，直接返回
+            result.append(path[:])  # 满足条件将其中的一个解加入结果集，此处需要注意Python的语法是解的一个副本
             return
-        if target < 0:
-            return  # 剪枝
+        if target < 0:  # 剪枝
+            return
 
-        for i in range(cur, len(candidates)):  # 从这个数本身开始进行搜索，即从i开始
-            path.append(candidates[i])  # 向path中加入元素
-            # 递归遍历下一层，每次修改target
-            self.DFS(candidates, i, target - candidates[i], path, results)
-            path.pop()  # pop()目的是为了回溯
+        for i in range(cur, len(candidates)):                              # 从这个数本身开始进行搜索，即从i开始
+            path.append(candidates[i])                                     # 向path中加入元素
+            self.DFS(candidates, i, target - candidates[i], path, result)  # 递归遍历下一层，每次修改target
+            path.pop()                                                     # pop()目的是为了回溯
 
 
 candidates, target = [2, 3, 6, 7], 7

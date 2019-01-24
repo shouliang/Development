@@ -8,7 +8,7 @@ we can also run the DFS algorithm on every node.
 
 DFS(G, u)
     u.visited = true
-    for each v ∈ G.Adj[u]
+    for each v ∈ G.Adj[u]         # 可能是非连通图，故要遍历对每个结点进行深度遍历
         if v.visited == false
             DFS(G,v)
 

@@ -42,8 +42,8 @@ def bfs_01(graph, start):
 
     while queue:
         vertex = queue.pop(0)
-        print(vertex)                  # 处理结点：譬如打印结点或者将结点添加到一个数组里面存储起来
-        for neighbour in graph[vertex]:
+        print(vertex)                    # 处理结点：譬如打印结点或者将结点添加到一个数组里面存储起来
+        for neighbour in graph[vertex]:  # 访问当前结点的相邻结点，命名为邻居结点好理解一点点 
             if visited[neighbour] is False:
                 visited[neighbour] = True
                 queue.append(neighbour)

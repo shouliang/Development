@@ -40,29 +40,31 @@ class Solution(object):
         """
         if not root:
             return []
-        results = []
-        dequeue = []          # 双向队列
-        dequeue.append(root)  # 根节点进入双向队列
+        result = []
+        queue = []          # 队列
+        queue.append(root)  # 根节点进入队列
         flag = True
-        while dequeue:
-            level_size = len(dequeue)
+        while queue:
             cur_level = []
+            level_size = len(queue)
+
             for _ in range(level_size):
-                node = dequeue.pop(0) if flag else dequeue.pop()
+                node = queue.pop(0) if flag else queue.pop()
                 cur_level.append(node.val)
                 if flag:                           # 加入队列尾部：left->right，出队列时反而从队列头部开始
                     if node.left:
-                        dequeue.append(node.left)
+                        queue.append(node.left)
                     if node.right:
-                        dequeue.append(node.right)
+                        queue.append(node.right)
                 else:                              # 加入队列头部：right->left, 出队列时反而从队列尾部开始
                     if node.right:
-                        dequeue.insert(0, node.right)
+                        queue.insert(0, node.right)
                     if node.left:
-                        dequeue.insert(0, node.left)
-            flag = not flag
-            results.append(cur_level)
-        return results
+                        queue.insert(0, node.left)
+
+            flag = not flag                        # 隔行变换标志
+            result.append(cur_level)
+        return result
 
 
 s = Solution()

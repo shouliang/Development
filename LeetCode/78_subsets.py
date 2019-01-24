@@ -7,17 +7,17 @@
 def subsets(nums):
     if not nums:
         return None
-    subset, results = [], []
-    dfs(nums, 0, subset, results)
-    return results
+    subset, result = [], []
+    dfs(nums, 0, subset, result)
+    return result
 
 
-def dfs(nums, start, subset, results):
-    results.append(subset[:])
+def dfs(nums, start, path, result):
+    result.append(path[:])
     for i in range(start, len(nums)):
-        subset.append(nums[i])
-        dfs(nums, i + 1, subset, results)
-        subset.pop()
+        path.append(nums[i])
+        dfs(nums, i + 1, path, result)
+        path.pop()
 
 
 nums = [1, 2, 3, 4, 5]
