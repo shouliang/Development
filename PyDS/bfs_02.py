@@ -1,15 +1,19 @@
 # https://eddmann.com/posts/depth-first-search-and-breadth-first-search-in-python/
 # 广度优先搜索
 
+
 def bfs(graph, start):
-    visited, queue = set(), [start]
+    visited, queue = set(), []
+    visited.add(start)
+    queue.append(start)
+
     while queue:
         vertex = queue.pop(0)
-        if vertex not in visited:
-            print(vertex)
-            visited.add(vertex)
-            queue.extend(graph[vertex] - visited)
-
+        print(vertex)
+        for i in graph[vertex]:
+            if i not in visited:
+                visited.add(i)
+                queue.append(i)
     return visited
 
 

@@ -14,8 +14,8 @@ DFS(G, u)
 init() {
     For each u ∈ G
         u.visited = false
-     For each u ∈ G
-       DFS(G, u)
+    For each u ∈ G
+        DFS(G, u)
 }
 '''
 
