@@ -23,4 +23,4 @@ class Solution(object):
         :type envelopes: List[List[int]]
         :rtype: int
         """
-        envelopes.sort(key = )
+        pass
