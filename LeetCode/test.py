@@ -53,7 +53,7 @@ def quick_sort(alist):
 
 
 def qucik_sort_helper(alist, low, high):
-    print(low,high)
+    print(low, high)
     if low >= high:
         return
     pivot = partition(alist, low, high)
@@ -113,7 +113,24 @@ def merge(alist, low, mid, high):
         start += 1
     alist[low:high+1] = temp
 
+
 alist = [5, 4, 8, 7, 1, 2, 9]
 merge_sort(alist)
 print('after merge_sort')
 print(alist)
+
+print('binary search changed version')
+def bsc(nums, value):
+    low, high = 0, len(nums) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if nums[mid] >= value:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return low,high
+
+
+nums = [1, 5, 11, 25]
+low = bsc(nums, 10)
+print(low)

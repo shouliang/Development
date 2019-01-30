@@ -1,9 +1,11 @@
 # coding=utf-8
 
 # 二分查找
+
+
 def binary_search(numbers, key):
     if not numbers:
-        return -2
+        return -1
     # 初始化low和high下标
     low = 0
     high = len(numbers) - 1
@@ -21,6 +23,7 @@ def binary_search(numbers, key):
             low = middle + 1
 
     return -1
+
 
 # test
 numbers = [2, 5, 6, 8, 9, 1, 0, 11]
