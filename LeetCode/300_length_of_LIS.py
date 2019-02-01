@@ -56,7 +56,7 @@ class Solution(object):
                         high = mid - 1
                     else:
                         low = mid + 1
-                tails[low] = x
+                tails[low] = x       # 找的是第一个大于等于目标的数，又数组是升序的，即从小到大，故取low
         return len(tails)
 
 

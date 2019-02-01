@@ -9,21 +9,19 @@
     GetMaxKey() - 返回 key 中值最大的任意一个。如果没有元素存在，返回一个空字符串""。
     GetMinKey() - 返回 key 中值最小的任意一个。如果没有元素存在，返回一个空字符串""。
     挑战：以 O(1) 的时间复杂度实现所有操作。
+
+思路：
+    Hash Table + Double linked list
 '''
 
-# TODO: 未做完，暂时不想做了
-class AllOne:
+
+class AllOne(object):
 
     def __init__(self):
         """
         Initialize your data structure here.
         """
-        self.hash_map = dict()
-
-        self.max_key = None
-        self.max_value = 0
-        self.min_key = None
-        self.min_value = 0
+        pass
 
     def inc(self, key):
         """
@@ -31,22 +29,7 @@ class AllOne:
         :type key: str
         :rtype: void
         """
-        if not self.hash_map:
-            self.hash_map[key] = 1
-            self.max_key = key
-            self.max_value = 1
-            self.min_key = key
-            self.min_value = 1
-        else:
-            if key in self.hash_map:
-                self.hash_map[key] += 1
-                if(self.hash_map[key] > self.max_value):
-                    self.max_key = key
-                    self.max_value = self.hash_map[key]
-                if self.hash_map[key] < self.min_value:
-                    self.min_key = key
-                    self.min_value = self.hash_map[key]
-            self.hash_map[key] = 1
+        pass
 
     def dec(self, key):
         """
@@ -54,28 +37,20 @@ class AllOne:
         :type key: str
         :rtype: void
         """
-        if key in self.hash_map:
-            if self.hash_map[key] == 1:
-                self.hash_map.pop(key)
-            else:
-                self.hash_map[key] -= 1
-                if(self.hash_map[key] > self.max_value):
-                    self.max_key = key
-                    self.max_value = self.hash_map[key]
-                if self.hash_map[key] < self.min_value:
-                    self.min_key = key
-                    self.min_value = self.hash_map[key]
+        pass
 
     def getMaxKey(self):
         """
         Returns one of the keys with maximal value.
         :rtype: str
         """
-        return self.max_key or ''
+        pass
 
     def getMinKey(self):
         """
         Returns one of the keys with Minimal value.
         :rtype: str
         """
-        return self.min_key or ''
+        pass
+
+
