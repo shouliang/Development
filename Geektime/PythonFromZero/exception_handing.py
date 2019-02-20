@@ -32,10 +32,10 @@ try:
 except ZeroDivisionError as e:
     print('0不能做除数 %s' % e)
 
-try:
-    a.append()
-except Exception as e:
-    print(' %s' % e)
+# try:
+#     a.append()
+# except Exception as e:
+#     print(' %s' % e)
 
 try:
     raise NameError('helloError')

@@ -28,7 +28,7 @@ def dfs(node,visited):
     visited.add(node)
     # process current node here
 
-    if next_node in node.children():
+    for next_node in node.children():
         if next_node not in visited:
             dfs(next_node, visited) 
 '''
