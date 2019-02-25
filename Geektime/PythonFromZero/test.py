@@ -26,6 +26,7 @@ p = re.compile('.')
 print(p.match('b'))
 
 p = re.compile('...')
+p = re.compile('.{3}')
 print(p.match('rfd'))
 
 # ^ 以某开始  $以某结尾
@@ -40,6 +41,34 @@ print(p.match('caaaat'))
 # | 匹配左边或右边
 # \d数字 [0-9]+ \D非数字
 
-#^$ 匹配空行
+# ^$ 匹配空行
 # .*? 不使用贪婪模式  abccccccd abc*d
 
+# 分组：加上小括号()
+p = re.compile(r'(\d+)-(\d+)-(\d+)')
+print(p.match('2019-01-24').group(0))
+print(p.match('2019-01-24').group(1))
+print(p.match('2019-01-24').group(2))
+print(p.match('2019-01-24').group(3))
+
+year, month, day = p.match('2019-01-24').groups()
+print(year)
+
+# match:需要完全匹配 与 search:从0个开始一直到可以匹配为止
+p = re.compile(r'(\d+)-(\d+)-(\d+)')
+# print(p.match('aa2019-01-24').group(0))
+print(p.search('aa2019-01-24'))
+
+# r不转义
+# print('\nx\n')
+# print(r'\nx\n')
+
+
+# sub 字符串的替换
+phone = '123-456-789 # 这是电话号码'
+p2 = re.sub(r'#.*$', '', phone)
+print(p2)
+p3 = re.sub(r'\D', '', p2)  # \D:非数字
+print(p3)
+
+# findAll 匹配多次
