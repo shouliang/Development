@@ -20,6 +20,8 @@ func TestConstantTry(t *testing.T) {
 
 func TestConstantTry02(t *testing.T) {
 	a := 1 // 0001
-	t.Log(a)
-	t.Log(a&Readable == Readable, a&Writable, a&Executable)
+	t.Log(Readable, Writable, Executable)
+	t.Log(a&Readable == Readable, a&Writable == Writable, a&Executable == Executable)
+	a = 7 // 0111
+	t.Log(a&Readable == Readable, a&Writable == Writable, a&Executable == Executable)
 }
