@@ -1,8 +1,6 @@
 package fib
 
-import (
-	"testing"
-)
+import "testing"
 
 func TestFibList(t *testing.T) {
 	// var a int = 1
@@ -27,7 +25,7 @@ func TestFibList(t *testing.T) {
 
 func TestExchange(t *testing.T) {
 	a := 1
-	b := 2
+	b := 3
 
 	// tmp := a
 	// a = b
