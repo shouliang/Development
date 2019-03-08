@@ -1,3 +1,4 @@
+// 常量
 package constant_test
 
 import "testing"

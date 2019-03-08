@@ -1,3 +1,4 @@
+// 变量声明和初始化
 package fib
 
 import "testing"

@@ -1,3 +1,4 @@
+// 数据类型
 package type_test
 
 import "testing"
