@@ -26,6 +26,7 @@ func TestAccessNotExistingKey(t *testing.T) {
 	m1[2] = 0
 	t.Log(m1[2])
 
+	// if 语句里面有初始化语句，然后再判断初始化中的变量
 	if v, ok := m1[333]; ok {
 		t.Logf("key 333's value is %d", v)
 	} else {
@@ -33,6 +34,7 @@ func TestAccessNotExistingKey(t *testing.T) {
 	}
 }
 
+// for rang
 func TestTravelMap(t *testing.T) {
 	m1 := map[int]int{2: 7, 4: 9, 5: 6}
 	for k, v := range m1 {

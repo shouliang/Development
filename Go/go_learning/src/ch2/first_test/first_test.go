@@ -1,4 +1,4 @@
-// 源码文件以_test 结尾：xxx_test.go
+// 源码文件以_test结尾：xxx_test.go
 package first_test
 
 import "testing"

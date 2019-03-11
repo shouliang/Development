@@ -4,7 +4,7 @@ package operator_test
 import "testing"
 
 const (
-	Readable = 1 << iota
+	Readable = 1 << iota // 左移
 	Writable
 	Executable
 )

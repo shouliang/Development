@@ -25,7 +25,7 @@ func TestSliceInit(t *testing.T) {
 func TestSliceGrowing(t *testing.T) {
 	s := []int{}
 	for i := 0; i < 10; i++ {
-		s = append(s, i) // cap空间不够时，会增长两倍
+		s = append(s, i) // 在cap<1024,cap空间不够时，会增长2倍,而后增长1.25倍
 		t.Log(len(s), cap(s))
 	}
 }
@@ -42,11 +42,11 @@ func TestSliceShareMemory(t *testing.T) {
 	t.Log(Q2)
 }
 
-func TestSliceComparing(t *tesing.T) {
+func TestSliceComparing(t *tes，ing.T) {
 	a := []int{1, 3, 2, 4}
 	b := []int{1, 3, 2, 4}
 
-	// slice can only be compared to nil 切片只能和nil进行比较
+	// 以下语句的报错信息：slice can only be compared to nil 切片只能和nil进行比较
 	// if a == b {
 	//
 	// }

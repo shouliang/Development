@@ -1,4 +1,4 @@
-// 数组初始化和遍历，容量不可收缩
+// 数组初始化和遍历，数组容量不可收缩
 package array_test
 
 import "testing"
@@ -21,7 +21,7 @@ func TestArrayTravel(t *testing.T) {
 	// 	t.Log(arr3[i])
 	// }
 
-	// 推荐第二种遍历的做法：使用rang,不适用索引可以通过下划线_舍弃
+	// 推荐第二种遍历的做法：使用for rang,不需要索引可以通过下划线_舍弃
 	for index, e := range arr3 {
 		t.Log(index, e)
 	}
