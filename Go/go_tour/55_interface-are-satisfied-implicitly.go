@@ -1,3 +1,4 @@
+// 隐式接口
 package main
 
 import (
@@ -21,6 +22,7 @@ type ReadWriter interface {
 func main() {
 	var w Writer
 
+	// os.Stdout 实现了 Writer
 	w = os.Stdout
 
 	fmt.Fprintf(w, "hello, writer\n")

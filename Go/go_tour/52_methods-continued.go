@@ -1,3 +1,5 @@
+// 方法(续)
+// 可以对任意类型定义任意方法
 package main
 
 import (

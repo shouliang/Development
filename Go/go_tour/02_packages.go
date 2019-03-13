@@ -8,5 +8,5 @@ import (
 )
 
 func main() {
-	fmt.Println("My favorite number is ", rand.Intn(10)) // 按照惯例，包名与导入路径的最后一个目录一直，此处为rand
+	fmt.Println("My favorite number is ", rand.Intn(10)) // 按照惯例，包名与导入路径的最后一个目录一致，此处为rand
 }

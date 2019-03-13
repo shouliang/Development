@@ -1,3 +1,4 @@
+// map的文法 key:value的形式
 package main
 
 import "fmt"

@@ -1,5 +1,5 @@
 // for
-// Go 只有一种循环结构  for循环
+// Go语言中只有一种循环结构  for循环
 package main
 
 import "fmt"

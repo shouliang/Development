@@ -1,3 +1,5 @@
+// range (续)
+// 可以通过赋值给 _ 来忽略索引或值
 package main
 
 import "fmt"

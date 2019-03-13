@@ -1,3 +1,4 @@
+// 练习：Stringers
 package main
 
 import "fmt"

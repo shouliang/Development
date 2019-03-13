@@ -1,3 +1,5 @@
+// range
+// for 循环的 range 格式可以对slice或map进行迭代循环
 package main
 
 import "fmt"

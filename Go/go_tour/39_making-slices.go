@@ -1,3 +1,9 @@
+// 构造slice
+/*
+	slice由函数 make([]T, length, capacity)创建,返回一个数组
+	length:长度
+	capacity:容量,该参数可以省略
+*/
 package main
 
 import "fmt"

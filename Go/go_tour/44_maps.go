@@ -1,3 +1,5 @@
+// map
+// make(map[type]type) ,在使用之前必须用make来创建
 package main
 
 import "fmt"

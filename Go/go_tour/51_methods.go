@@ -1,3 +1,4 @@
+// 方法
 package main
 
 import (
@@ -9,6 +10,7 @@ type Vertex struct {
 	X, Y float64
 }
 
+// 方法接受者 出现在func关键字和方法名之间的参数中
 func (v *Vertex) Abs() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }

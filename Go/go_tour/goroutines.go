@@ -1,3 +1,9 @@
+// goroutine
+/*
+goroutine 是由Go运行时环境管理的轻量级线程
+go f(x,y,z) 开启一个新的goroutine执行
+*/
+
 package main
 
 import (
@@ -13,6 +19,6 @@ func say(s string) {
 }
 
 func main() {
-	go say("world")
-	say("hello")
+	go say("hello")
+	say("world")
 }

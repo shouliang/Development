@@ -27,10 +27,37 @@ func slowFun(op int) int {
 	return op
 }
 
+// 可变长参数: 不需要指定参数个数，但是参数类型要求一致,实质会转换成数组，通过数组遍历来完成
+func Sum(ops ...int) int {
+	s := 0
+	for _, op := range ops {
+		s += op
+	}
+	return s
+}
+
 func TestFn(t *testing.T) {
 	a, b := returnMultiValues()
 	t.Log(a, b)
 
 	tsSF := timeSpent(slowFun)
 	t.Log(tsSF(10))
+}
+
+func TestVarParam(t *testing.T) {
+	// 可变长参数
+	t.Log(Sum(1, 2, 3))
+	t.Log(Sum(1, 2, 3, 4, 5))
+}
+
+func Clear() {
+	fmt.Println("Clear resource.")
+}
+
+// defer 延迟执行，在函数返回前才会执行，依据这种特性 ，清理资源和释放锁
+func TestDefer(t *testing.T) {
+	defer Clear()
+	fmt.Println("Start")
+	panic("error") // 即使panic，defer后面的语句依然会执行，但是普通语句在panic后不会执行
+
 }
