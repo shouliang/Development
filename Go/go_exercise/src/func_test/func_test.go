@@ -52,5 +52,5 @@ func TestFunc(t *testing.T) {
 	func(a, b int) int {
 		return a + b
 	}(4, 5)
-	
+
 }
