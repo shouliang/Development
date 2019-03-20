@@ -4,7 +4,7 @@ import "testing"
 
 func TestString(t *testing.T) {
 	var s string
-	t.Log(s) // string是数据类型，是引用或指针类型，初始化默认零值“”
+	t.Log(s) // string是数据类型，初始化默认零值“”
 
 	s = "hello"
 	t.Logf("len hello is %d", len(s))
