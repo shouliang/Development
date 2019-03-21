@@ -19,6 +19,15 @@ func say(s string) {
 }
 
 func main() {
-	go say("hello")
+	// 同步运行
+	say("hello")
 	say("world")
+
+	// 加go关键字，函数就运行在一个goroutin里面了，就变成异步执行了
+	fmt.Println("----------goroutine----------")
+	go say("hello")
+	go say("world")
+
+	// main所处的进程强制等待一秒，等待前面的2个 go
+	time.Sleep(time.Second * 1)
 }
