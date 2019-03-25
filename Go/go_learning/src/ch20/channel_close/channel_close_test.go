@@ -34,7 +34,11 @@ func dataReceiver(ch chan int, wg *sync.WaitGroup) {
 		// }
 
 		// 第三版
+<<<<<<< HEAD:Go/go_learning/src/ch19/channel_close/channel_close_test.go
 		// 第11个数，接收不到， 会被阻塞,如果channel关闭，就不会阻塞，而是输出通道类型的零值
+=======
+		// 第11个数，接收不到，会被阻塞,如果channel关闭，就不会阻塞，而是输出通道类型的零值
+>>>>>>> 00d3228fd6d3b8b2940d4a1cf74a9c9c43291d4f:Go/go_learning/src/ch20/channel_close/channel_close_test.go
 		// for i := 0; i < 11; i++ {
 		// 	fmt.Println(<-ch)
 		// }
