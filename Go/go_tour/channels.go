@@ -23,10 +23,12 @@ func sum(a []int, c chan int) {
 func main() {
 	a := []int{7, 2, 8, -9, 4, 0}
 
-	c := make(chan int) // make函数创建channel
+	// make函数创建channel
+	c := make(chan int)
 	go sum(a[:len(a)/2], c)
 	go sum(a[len(a)/2:], c)
-	x, y := <-c, <-c // 从c中获取数据
+	// 从c中获取数据
+	x, y := <-c, <-c
 
 	fmt.Println(x, y, x+y)
 }

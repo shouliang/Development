@@ -14,5 +14,6 @@ func init() {
 
 // main 是整个程序的入口
 func main() {
-	// search.Run("president") // 一旦Run函数退出，程序就会终止
+	// 一旦Run函数退出，程序就会终止
+	// search.Run("president")
 }

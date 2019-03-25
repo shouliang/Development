@@ -14,14 +14,16 @@ func (p *Pet) Speak() {
 }
 
 func (p *Pet) SpeakTo(host string) {
-	p.Speak() // 可以调用之前定义的方法
+	// 可以调用之前定义的方法
+	p.Speak()
 	fmt.Println(" ", host)
 }
 
 //----------- define Dog -----------
 
 type Dog struct {
-	Pet // 嵌入了*Pet  匿名嵌套类型
+	// 嵌入了*Pet  匿名嵌套类型
+	Pet
 }
 
 // func (d *Dog) Speak() {
@@ -35,9 +37,11 @@ func (d *Dog) SpeakTo(host string) {
 }
 
 func TestDog(t *testing.T) {
-	dog := new(Dog) //var dog Dog
+	//var dog Dog
+	dog := new(Dog)
 
-	//var dog Pet = new(Dog) // cannot use new(Dog) (type *Dog) as type Pet in assignment 不支持从Dog类型向Pet转换
+	// cannot use new(Dog) (type *Dog) as type Pet in assignment 不支持从Dog类型向Pet转换
+	//var dog Pet = new(Dog)
 	// dog.Speak()
 	dog.SpeakTo("Cai")
 }

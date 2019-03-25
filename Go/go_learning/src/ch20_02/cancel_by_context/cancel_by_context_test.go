@@ -1,4 +1,5 @@
-package cancel_by_context // 关联任务的取消
+// 关联任务的取消
+package cancel_by_context
 
 import (
 	"context"
@@ -22,7 +23,8 @@ func isCancelled(ctx context.Context) bool {
 // 当前Context被取消时，基于他的子context都会被取消
 // 任务取消  发消息取消
 func TestCancel(t *testing.T) {
-	ctx, cancel := context.WithCancel(context.Background()) // ctx为当前根Context的子Context
+	// ctx为当前根Context的子Context
+	ctx, cancel := context.WithCancel(context.Background())
 
 	for i := 0; i < 5; i++ {
 		go func(i int, ctx context.Context) {

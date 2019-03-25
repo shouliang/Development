@@ -58,6 +58,8 @@ func Clear() {
 func TestDefer(t *testing.T) {
 	defer Clear()
 	fmt.Println("Start")
-	panic("error") // 即使panic，defer后面的语句依然会执行，但是普通语句在panic后不会执行
+
+	// 即使panic，defer后面的语句依然会执行，但是普通语句在panic后不会执行
+	panic("error")
 
 }

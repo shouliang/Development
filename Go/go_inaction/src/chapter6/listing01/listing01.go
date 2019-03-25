@@ -1,4 +1,4 @@
-// goroutine实例
+// goroutine调度器如何在单个线程上切分时间片
 package main
 
 import (
@@ -9,7 +9,13 @@ import (
 
 func main() {
 	// Allocate 1 logical processor
-	runtime.GOMAXPROCS(1)
+	// 1个逻辑处理器，CPU时间片切换
+	//runtime.GOMAXPROCS(1)
+	// 2个逻辑处理器，goroutine是真正的同时运行，而不是CPU时间片切换
+	//runtime.GOMAXPROCS(2)
+	numCPU := runtime.NumCPU()
+	fmt.Println("NumCPU is", numCPU)
+	runtime.GOMAXPROCS(runtime.NumCPU())
 
 	// wg is used to wait for the program to finish
 	// Add a count of three, one for each goroutine
@@ -33,7 +39,7 @@ func main() {
 	go func() {
 		defer wg.Done()
 
-		fmt.Println("just add one short goroutine")
+		fmt.Printf("\njust add one short goroutine\n")
 	}()
 
 	go func() {

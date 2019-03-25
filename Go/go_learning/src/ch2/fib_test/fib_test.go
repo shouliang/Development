@@ -12,7 +12,8 @@ func TestFibList(t *testing.T) {
 	//   b int = 1
 	// )
 
-	a := 1 // 变量初始化的一种，可以进行自动类型推断
+	// 变量初始化的一种，可以进行自动类型推断
+	a := 1
 	b := 1
 
 	t.Log(a)
@@ -31,7 +32,9 @@ func TestExchange(t *testing.T) {
 	// tmp := a
 	// a = b
 	// b = tmp
-	a, b = b, a // 在一个复制语句中可以对多个变量进行同时赋值
+
+	// 在一个复制语句中可以对多个变量进行同时赋值
+	a, b = b, a
 
 	t.Log(a, b)
 }

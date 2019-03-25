@@ -27,17 +27,22 @@ func TestCreateEmployeeObj(t *testing.T) {
 	e := Employee{"0", "Bob", 20}
 	e1 := Employee{Name: "Mike", Age: 30}
 
-	e2 := new(Employee) // 返回指针
-	e2.Id = "2"         // 指针类型访问成员变量，不需要箭头符号->,依然是通过.即可
+	// 返回指针
+	e2 := new(Employee)
+	// 指针类型访问成员变量，不需要箭头符号->,依然是通过.即可
+	e2.Id = "2"
 	e2.Name = "Rose"
 
 	t.Log("e is ", e)
 	t.Log("e1 is ", e1)
-	t.Log("e1.Id is", e1.Id) // 默认值为空字符串 ""
+
+	// 默认值为空字符串 ""
+	t.Log("e1.Id is", e1.Id)
 	t.Log("e2 is ", e2)
 
 	t.Logf("type of e is %T", e)
-	t.Logf("type of e2 is %T", e2) // *encapsulation.Employee指针类型
+	// *encapsulation.Employee指针类型
+	t.Logf("type of e2 is %T", e2)
 
 }
 

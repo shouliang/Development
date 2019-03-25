@@ -4,9 +4,14 @@ package array_test
 import "testing"
 
 func TestArrayInit(t *testing.T) {
-	var arr [3]int               // 数组初始化，全部为0
-	arr1 := [4]int{1, 2, 3, 5}   // 初始化并赋值
-	arr2 := [...]int{5, 8, 9, 4} // [...] 可以不指定数组的长度
+	// 数组初始化，全部为0
+	var arr [3]int
+
+	// 初始化并赋值
+	arr1 := [4]int{1, 2, 3, 5}
+
+	// [...] 可以不指定数组的长度
+	arr2 := [...]int{5, 8, 9, 4}
 
 	arr1[1] = 4
 	t.Log(arr1[1], arr2[1])

@@ -8,7 +8,8 @@ import (
 )
 
 func service() string {
-	time.Sleep(time.Millisecond * 500) // 模拟500微秒的耗时，下面设置100微秒超时控制
+	// 模拟500微秒的耗时，下面设置100微秒超时控制
+	time.Sleep(time.Millisecond * 500)
 	return "service Done"
 }
 
@@ -30,7 +31,8 @@ func TestSelect(t *testing.T) {
 	select {
 	case ret := <-AsyncService():
 		t.Log(ret)
-	case <-time.After(time.Millisecond * 100): // 超时控制，防止阻塞主进程
+		// 超时控制，防止阻塞主进程
+	case <-time.After(time.Millisecond * 100):
 		t.Error("time out")
 	}
 }

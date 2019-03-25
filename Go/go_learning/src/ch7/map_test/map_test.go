@@ -15,13 +15,15 @@ func TestInitMap(t *testing.T) {
 	map3[4] = 16
 	t.Logf("len map3 = %d", len(map3))
 
-	map4 := make(map[int]int, 10) // make初始化map,第二个参数为cap
+	// make初始化map,第二个参数为cap
+	map4 := make(map[int]int, 10)
 	t.Logf("len map4 = %d", len(map4))
 }
 
 func TestAccessNotExistingKey(t *testing.T) {
+	// 不存在的key,默认为零值,也不会报错，但是需要判断key的值是0，还是key不存在
 	m1 := map[int]int{}
-	t.Log(m1[1]) // 不存在的key,默认为零值,也不会报错，但是需要判断key的值是0，还是key不存在
+	t.Log(m1[1])
 
 	m1[2] = 0
 	t.Log(m1[2])

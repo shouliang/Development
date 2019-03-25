@@ -3,7 +3,8 @@ package mapext
 import "testing"
 
 func TestMapWithFunValue(t *testing.T) {
-	m := map[int]func(op int) int{} // map可以为int ,value为一个方法,实现工厂模式
+	// map可以为int ,value为一个方法,实现工厂模式
+	m := map[int]func(op int) int{}
 
 	m[1] = func(op int) int { return op }
 	m[2] = func(op int) int { return op * op }

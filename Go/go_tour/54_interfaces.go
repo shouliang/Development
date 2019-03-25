@@ -34,15 +34,19 @@ func (v *Vertex) Abs() float64 {
 }
 
 func main() {
-	var a Abser // 声明一个接口变量，可以存放实现接口的任意值
+	// 声明一个接口变量，可以存放实现接口的任意值
+	var a Abser
 	f := MyFloat(-math.Sqrt2)
 	v := Vertex{3, 4}
 
-	a = f // a MyFloat实现了接口 Abser
+	// a MyFloat实现了接口 Abser
+	a = f
 	fmt.Println(a.Abs())
 
-	a = &v // a *Vertex 实现了接口 Abser
+	// a *Vertex 实现了接口 Abser
+	a = &v
 	fmt.Println(a.Abs())
 
-	// a = v // a Vertex 没有实现了接口 Abser，故此句会编译不通过
+	// a Vertex 没有实现了接口 Abser，故此句会编译不通过
+	// a = v
 }

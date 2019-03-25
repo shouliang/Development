@@ -51,7 +51,8 @@ func TestSelect(t *testing.T) {
 	select {
 	case ret := <-AsyncService():
 		t.Log(ret)
-	case <-time.After(time.Millisecond * 100): // 超时控制，防止阻塞主进程
+		// 超时控制，防止阻塞主进程
+	case <-time.After(time.Millisecond * 100):
 		t.Error("time out")
 	}
 }

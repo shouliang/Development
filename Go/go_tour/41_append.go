@@ -18,7 +18,8 @@ func main() {
 	a = append(a, 1)
 	printSlice("a", a)
 
-	a = append(a, 2, 3, 4) // 一次可以添加多个元素到slice
+	// 一次可以添加多个元素到slice
+	a = append(a, 2, 3, 4)
 	printSlice("a", a)
 }
 

@@ -4,7 +4,8 @@ package slice_test
 import "testing"
 
 func TestSliceInit(t *testing.T) {
-	var s0 []int // 切片和数组的声明很类似，但是没有指明长度
+	// 切片和数组的声明很类似，但是没有指明长度
+	var s0 []int
 	t.Log(len(s0), cap(s0))
 
 	s0 = append(s0, 2)
@@ -13,19 +14,23 @@ func TestSliceInit(t *testing.T) {
 	s1 := []int{1, 2, 3, 4}
 	t.Log(len(s1), cap(s1))
 
-	s2 := make([]int, 3, 5) // make创建切片，初始化 len=3, cap=5
+	// make创建切片，初始化 len=3, cap=5
+	s2 := make([]int, 3, 5)
 	t.Log(len(s2), cap(s2))
-	t.Log(s2[0], s2[1], s2[2]) // 只可以访问len索引内的
+	// 只可以访问len索引内的
+	t.Log(s2[0], s2[1], s2[2])
 	// t.Log(s2[0], s2[1], s2[2], s2[3])
 
-	s2 = append(s2, 9) // append一个元素后，len也相应的增长，故可以访问s2[3]了
+	// append一个元素后，len也相应的增长，故可以访问s2[3]了
+	s2 = append(s2, 9)
 	t.Log(s2[0], s2[1], s2[2], s2[3])
 }
 
 func TestSliceGrowing(t *testing.T) {
 	s := []int{}
 	for i := 0; i < 10; i++ {
-		s = append(s, i) // 在cap<1024,cap空间不够时，会增长2倍,而后增长1.25倍
+		// 在cap<1024,cap空间不够时，会增长2倍,而后增长1.25倍
+		s = append(s, i)
 		t.Log(len(s), cap(s))
 	}
 }
@@ -38,11 +43,12 @@ func TestSliceShareMemory(t *testing.T) {
 	summer := year[5:8]
 	t.Log(summer, len(summer), cap(summer))
 
-	summer[0] = "Unknow" // 修改后会影响到其他的共享的切片
+	// 修改后会影响到其他的共享的切片
+	summer[0] = "Unknow"
 	t.Log(Q2)
 }
 
-func TestSliceComparing(t *tes，ing.T) {
+func TestSliceComparing(t *testing.T) {
 	a := []int{1, 3, 2, 4}
 	b := []int{1, 3, 2, 4}
 

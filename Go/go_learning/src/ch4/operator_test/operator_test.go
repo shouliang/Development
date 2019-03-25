@@ -16,7 +16,9 @@ func TestCompareArray(t *testing.T) {
 	d := [...]int{1, 2, 3, 4}
 
 	t.Log(a == b)
-	t.Log(a == d) // 数组个数相同且对应位置的元素相等，则两个数组也相等
+
+	// 数组个数相同且对应位置的元素相等，则两个数组也相等
+	t.Log(a == d)
 }
 
 func TestBitClear(t *testing.T) {

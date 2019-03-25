@@ -31,10 +31,12 @@ func writeFirstProgram(p Programmer) {
 }
 
 func TestPolymorphism(t *testing.T) {
-	goProg := new(GoProgrammer) // new产生指针类型
+	// new产生指针类型
+	goProg := new(GoProgrammer)
 	javaProg := new(JavaProgrammer)
 
 	// 多态
-	writeFirstProgram(goProg) // 接口接收指针类型的
+	// 接口接收指针类型的
+	writeFirstProgram(goProg)
 	writeFirstProgram(javaProg)
 }

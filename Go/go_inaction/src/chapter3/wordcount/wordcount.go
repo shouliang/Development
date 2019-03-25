@@ -9,7 +9,8 @@ import (
 
 // go run wordcount.go  gowords.txt
 func main() {
-	filename := os.Args[1] // 获取命令行文件名
+	// 获取命令行文件名
+	filename := os.Args[1]
 
 	contents, err := ioutil.ReadFile(filename)
 	if err != nil {

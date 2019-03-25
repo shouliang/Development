@@ -21,7 +21,8 @@ func DoSomething(p interface{}) {
 	// fmt.Println("Unknow Type")
 
 	// 可以将if 改写多 switch
-	switch v := p.(type) { //  p.(type)断言
+	//  p.(type)断言
+	switch v := p.(type) {
 	case int:
 		fmt.Println("Integer", v)
 	case string:

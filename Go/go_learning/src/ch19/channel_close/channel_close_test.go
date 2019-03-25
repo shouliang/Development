@@ -13,7 +13,7 @@ func dataProducer(ch chan int, wg *sync.WaitGroup) {
 			ch <- i
 		}
 		close(ch)
-		// 向关闭的channel发送数据，会导致panic
+		//向关闭的channel发送数据，会导致panic
 		//ch <- 11
 		wg.Done()
 	}()
@@ -35,7 +35,7 @@ func dataReceiver(ch chan int, wg *sync.WaitGroup) {
 		// }
 
 		// 第三版
-		// 第11个数，接收不到，会被阻塞,如果channel关闭，就不会阻塞，而是输出通道类型的零值
+		// 第11个数，接收不到， 会被阻塞,如果channel关闭，就不会阻塞，而是输出通道类型的零值
 		// for i := 0; i < 11; i++ {
 		// 	fmt.Println(<-ch)
 		// }

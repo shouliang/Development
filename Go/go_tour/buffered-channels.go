@@ -12,12 +12,15 @@ func main() {
 	c := make(chan int, 2)
 	c <- 1
 	c <- 2
-	//c <- 3    // channel已满，不能再发送数据到channel
+	// channel已满，不能再发送数据到channel
+	//c <- 3
 	fmt.Println(<-c)
 	fmt.Println(<-c)
 	c <- 998
 	c <- 999
 	fmt.Println(<-c)
 	fmt.Println(<-c)
-	//fmt.Println(<-c) channel已空，不能再从channel读取数据
+
+	// channel已空，不能再从channel读取数据
+	//fmt.Println(<-c)
 }
