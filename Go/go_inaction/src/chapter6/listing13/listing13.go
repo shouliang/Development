@@ -1,4 +1,4 @@
-// 使用atomic包来提供对数值类型的安全访问
+// 展示如何使用atomic包来提供对数值类型的安全访问
 package main
 
 import (

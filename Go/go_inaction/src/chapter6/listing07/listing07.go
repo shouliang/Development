@@ -1,5 +1,4 @@
-// 展示如何创建goroutine已经调度器的行为
-// goroutine调度器如何在单个线程上切分时间片
+// 展示如何创建goroutine以及调度器的行为
 package main
 
 import (
@@ -9,14 +8,9 @@ import (
 )
 
 func main() {
-	// 分配1个逻辑处理器给调度器使用，CPU时间片切换
-	runtime.GOMAXPROCS(1)
-
+	// 分配2个逻辑处理器给调度器使用
 	// 2个逻辑处理器，goroutine是真正的同时运行，而不是CPU时间片切换
-	//runtime.GOMAXPROCS(2)
-	// numCPU := runtime.NumCPU()
-	// fmt.Println("NumCPU is", numCPU)
-	// runtime.GOMAXPROCS(runtime.NumCPU())
+	runtime.GOMAXPROCS(2)
 
 	// wg 用来等待程序完成
 	// 计数加2，表示要等待2个goroutine

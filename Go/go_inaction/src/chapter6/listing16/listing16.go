@@ -1,4 +1,4 @@
-// 使用互斥锁实现资源的同步访问
+// 展示如何使用互斥锁定义一段需要同步访问的代码临界区和资源的同步访问
 package main
 
 import (
@@ -9,8 +9,10 @@ import (
 
 var (
 	counter int
-	wg      sync.WaitGroup
-	// 互斥锁
+
+	wg sync.WaitGroup
+
+	// 互斥锁，用来定义一段代码临界区
 	mutex sync.Mutex
 )
 
@@ -24,6 +26,7 @@ func main() {
 	fmt.Printf("Final Counter:%d\n", counter)
 }
 
+//  使用互斥锁来同步并保证安全访问
 func incCounter(id int) {
 	defer wg.Done()
 
