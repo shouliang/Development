@@ -27,6 +27,7 @@ func main() {
 	c := make(chan int)
 	go sum(a[:len(a)/2], c)
 	go sum(a[len(a)/2:], c)
+
 	// 从c中获取数据
 	x, y := <-c, <-c
 
