@@ -1,3 +1,4 @@
+// 展示如何解码JSON字符串
 package main
 
 import (
@@ -6,6 +7,7 @@ import (
 	"log"
 )
 
+// Contact结构体
 type Contact struct {
 	Name    string `json:"name"`
 	Title   string `json:"title"`
@@ -15,6 +17,7 @@ type Contact struct {
 	} `json:"contact"`
 }
 
+// 用于反序列化的演示字符串
 var JSON = `{
   "name": "Gopher",
   "title":"programmer",
@@ -26,6 +29,8 @@ var JSON = `{
 
 func main() {
 	var c Contact
+
+	// 使用Unmarshal函数将JSON字符串解析到一个结构体中
 	err := json.Unmarshal([]byte(JSON), &c)
 	if err != nil {
 		log.Println("ERROR:", err)

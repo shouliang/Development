@@ -1,3 +1,4 @@
+// 展示如何序列化JSON字符串
 package main
 
 import (
@@ -15,7 +16,10 @@ func main() {
 		"cell": "415.555.5555",
 	}
 
+	// 将一个map值转换成JSON字符串，MarshalIndent带缩进
 	data, err := json.MarshalIndent(c, "", "    ")
+
+	// Marshal不带缩进
 	//data, err := json.Marshal(c)
 	if err != nil {
 		log.Println("ERROR:", err)

@@ -1,3 +1,4 @@
+// 展示如何使用json包和NewDecoder函数来解码JSON
 package main
 
 import (
@@ -22,6 +23,7 @@ import (
 //   "": "https://httpbin.org/get"
 // }
 
+// 文档结构
 type gHeaders struct {
 	Accept                  string `json:"Accept"`
 	AcceptEncoding          string `json:"Accept-Encoding"`
@@ -32,6 +34,7 @@ type gHeaders struct {
 	UserAgent               string `json:"User-Agent"`
 }
 
+// 包含顶级的文档结构
 type gResponse struct {
 	Args    struct{} `json:"args"`
 	Headers gHeaders `json:"headers"`
@@ -50,6 +53,7 @@ func main() {
 
 	defer resp.Body.Close()
 
+	// 将JSON响应解码到结构类型
 	var gr gResponse
 	err = json.NewDecoder(resp.Body).Decode(&gr)
 	if err != nil {

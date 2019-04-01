@@ -20,12 +20,14 @@ func init() {
 		log.Fatalln("Failed to open error log")
 	}
 
+	// io.Discard不输出
 	Trace = log.New(ioutil.Discard, "Trace: ", log.Ldate|log.Ltime|log.Lshortfile)
 
 	Info = log.New(os.Stdout, "Info: ", log.Ldate|log.Ltime|log.Lshortfile)
 
 	Warning = log.New(os.Stdout, "WARNING: ", log.Ldate|log.Ltime|log.Lshortfile)
 
+	// io.MultiWriter多终端输出
 	Error = log.New(io.MultiWriter(file, os.Stderr), "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
 }
 

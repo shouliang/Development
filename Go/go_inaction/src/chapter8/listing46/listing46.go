@@ -1,3 +1,4 @@
+// 展示如何使用io.Reader和io.Writer接口写一个简单版本的curl
 package main
 
 import (
