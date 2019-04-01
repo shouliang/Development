@@ -2,6 +2,8 @@
 package main
 
 import (
+	_ "chapter2/matchers"
+	"chapter2/search" //引入search包，会先执行search包中所有文件的init方法
 	"log"
 	"os"
 )
@@ -15,5 +17,5 @@ func init() {
 // main 是整个程序的入口
 func main() {
 	// 一旦Run函数退出，程序就会终止
-	// search.Run("president")
+	search.Run("president")
 }
