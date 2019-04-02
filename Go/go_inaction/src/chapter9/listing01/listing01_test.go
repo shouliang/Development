@@ -7,8 +7,11 @@ import (
 )
 
 const (
+	// ✔️号
 	checkMark = "\u2713"
-	ballotX   = "\u2717"
+
+	// 叉号
+	ballotX = "\u2717"
 )
 
 func TestDownload(t *testing.T) {
