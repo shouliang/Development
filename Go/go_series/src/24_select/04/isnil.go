@@ -1,4 +1,4 @@
-// 如果 select 只含有值为 nil 的信道，也同样会执行默认情况。
+// 如果 select 只含有值为 nil 的通道，也同样会执行默认情况。
 package main
 
 import "fmt"

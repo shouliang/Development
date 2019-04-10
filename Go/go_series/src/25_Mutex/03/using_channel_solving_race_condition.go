@@ -10,7 +10,8 @@ var x = 0
 
 func increment(wg *sync.WaitGroup, chl chan bool) {
 	// 由于缓冲通道的容量为 1，
-	//所以任何其他协程试图写入该信道时，都会发生阻塞 ，直到 x 增加后，通道的值才会被读取
+	// 所以任何其他协程试图写入该信道时，都会发生阻塞 ，直到 x 增加后，通道的值才会被读取
+	// 相当于包裹在 发送数据到通道 和 从通道读取数据之间
 	chl <- true
 	x = x + 1
 	<-chl
@@ -27,5 +28,7 @@ func main() {
 	}
 
 	wg.Wait()
+
+	// 最终结果1000
 	fmt.Println("final value of x", x)
 }

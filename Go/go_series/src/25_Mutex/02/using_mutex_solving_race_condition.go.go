@@ -9,9 +9,11 @@ import (
 var x = 0
 
 func increment(wg *sync.WaitGroup, mutex *sync.Mutex) {
+	// 包裹在Lock和Unlock之间
 	mutex.Lock()
 	x = x + 1
 	mutex.Unlock()
+
 	wg.Done()
 }
 
@@ -24,5 +26,7 @@ func main() {
 	}
 
 	wg.Wait()
+
+	// 最终结果1000
 	fmt.Println("final value of x", x)
 }

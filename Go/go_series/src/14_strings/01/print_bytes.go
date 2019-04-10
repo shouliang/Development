@@ -4,7 +4,7 @@ package main
 
 import "fmt"
 
-// %x // 以十六进制打印每个字节
+// %x 以十六进制打印每个字节
 func printBytes(s string) {
 	for i := 0; i < len(s); i++ {
 		fmt.Printf("%x ", s[i])

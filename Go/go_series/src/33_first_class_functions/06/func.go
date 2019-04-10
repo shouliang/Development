@@ -12,7 +12,7 @@ func appendStr() func(string) string {
 		return t
 	}
 
-	// 返回了一个闭包
+	// 返回了一个闭包，闭包是一个函数
 	return c
 }
 

@@ -4,6 +4,7 @@ package main
 import "fmt"
 
 // 把函数作为参数，传递给其它函数
+// a是是一个函数类型，函数签名为func(a int, b int) int
 func simple(a func(a int, b int) int) {
 	fmt.Println(a(60, 8))
 }

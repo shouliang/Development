@@ -9,7 +9,7 @@ func change(s ...string) {
 func main() {
 	welcome := []string{"hello", "world"}
 
-	// welcome...传入切片但不会创建新的切片
+	// welcome...三个点的形式传入切片类型，不会创建新的切片
 	change(welcome...)
 	fmt.Println(welcome)
 }

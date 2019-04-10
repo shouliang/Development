@@ -11,5 +11,5 @@ func mutate(s []rune) string {
 
 func main() {
 	h := "hello"
-	fmt.Println(mutate([]rune(h)))
+	fmt.Println(mutate([]rune(h))) // 类型转换语法为T(v),v为参数，T为要转换的新类型
 }
