@@ -7,8 +7,8 @@ import "testing"
 func TestDeclaringPointer(t *testing.T) {
 	b := 255
 
-	// & 操作符用于获取变量的地址
-	var a *int = &b
+	// 通过*int声明了一个int类型的的指针变量a，并让其指向了b的存储地址
+	var a *int = &b // & 操作符用于获取变量的地址
 	t.Logf("Type of a is %T\n", a)
 	t.Log("address of b is", a)
 }
@@ -16,6 +16,8 @@ func TestDeclaringPointer(t *testing.T) {
 // 指针的零值 nil
 func TestZeroValueOfPointer(t *testing.T) {
 	a := 25
+
+	// 指针变量声明未初始化则其默认值为零值 nil
 	var b *int
 	if b == nil {
 		t.Log("b is", b)
@@ -25,7 +27,7 @@ func TestZeroValueOfPointer(t *testing.T) {
 }
 
 // 指针的解引用
-// 指针的解引用可以获取指针所指向的变量的值。将 a 解引用的语法是 *a
+// 指针的解引用可以获取指针所指向的变量的值。将指针类型的变量 a 解引用的语法是 *a
 func TestDereferencingAPointer(t *testing.T) {
 	b := 255
 	a := &b
@@ -35,7 +37,7 @@ func TestDereferencingAPointer(t *testing.T) {
 	t.Log("value of b is", *a)
 
 	// 把 a 指向的值加 1，由于 a 指向了 b，因此 b 的值也发生了同样的改变
-	*a++
+	*a = *a + 1
 	t.Log("new value of b is", b)
 }
 

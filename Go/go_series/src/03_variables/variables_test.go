@@ -49,7 +49,7 @@ func TestDeclareMultiVariablesNotInitial(t *testing.T) {
 	t.Log("width is", width, "height is", height)
 }
 
-// 声明多个变量：未初始化
+// 声明多个不同类型的变量
 /* 在有些情况下，我们可能会想要在一个语句中声明不同类型的变量。其语法如下：
 
 var (
@@ -78,7 +78,7 @@ func TestShortHandDeclaration(t *testing.T) {
 	// 简短声明的语法要求 := 操作符的左边至少有一个变量是尚未声明的。
 	a, b := 20, 30
 	t.Log("a is", a, "b is", b)
-	b, c := 40, 50 // b已经声明，但c尚未声明
+	b, c := 40, 50 // b已经声明，但c尚未声明，所有允许
 	t.Log("b is", b, "c is", c)
 
 	x, y := 99, 100
@@ -88,5 +88,5 @@ func TestShortHandDeclaration(t *testing.T) {
 
 	//由于 Go 是强类型（Strongly Typed）语言，因此不允许某一类型的变量赋值为其他类型的值
 	// xxx := 66
-	// xxx = "xxx" // cannot use "xxx" (type string) as type int in assignment
+	// xxx = "aaabbb" // cannot use "aaabbb" (type string) as type int in assignment
 }

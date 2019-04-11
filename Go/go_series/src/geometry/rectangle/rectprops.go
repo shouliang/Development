@@ -3,7 +3,14 @@
 // 在 Go 中，任何以大写字母开头的变量或者函数都是被导出的名字
 package rectangle
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
+
+func init() {
+	fmt.Println("rectangle package initialized")
+}
 
 // 计算矩形面积
 func Area(len, wid float64) float64 {

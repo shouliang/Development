@@ -39,7 +39,7 @@ func TestInt(t *testing.T) {
 // 浮点型
 func TestFloat(t *testing.T) {
 	a, b := 5.67, 1.28
-	// 和 b 的类型根据赋值推断得出。在这里，a 和 b 的类型为 float64（float64 是浮点数的默认类型）
+	// a 和 b 的类型根据赋值推断得出。在这里，a 和 b 的类型为 float64（float64 是浮点数的默认类型）
 	t.Logf("type of a %T b %T", a, b)
 }
 
@@ -47,8 +47,12 @@ func TestFloat(t *testing.T) {
 // 内建函数 complex 用于创建一个包含实部和虚部的复数。complex 函数的定义如下：
 // 																				func complex(r, i FloatType) ComplexType
 func TestComplex(t *testing.T) {
+	// comple1 函数创建复数
 	c1 := complex(5, 7)
+
+	// 直接创建复数
 	c2 := 8 + 27i
+
 	cadd := c1 + c2
 	t.Log("sum:", cadd)
 
