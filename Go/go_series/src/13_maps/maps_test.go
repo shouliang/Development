@@ -141,6 +141,7 @@ func changed(m map[string]int) {
 
 // Map 的相等性
 // map 之间不能使用 == 操作符判断，== 只能用来检查 map 是否为 nil。
+// 判断两个 map 是否相等的方法是遍历比较两个 map 中的每个元素。我建议你写一段这样的程序实现这个功能
 func TestMapsNotEqual(t *testing.T) {
 	map1 := map[string]int{
 		"one": 1,
@@ -154,6 +155,7 @@ func TestMapsNotEqual(t *testing.T) {
 	// if map1 == map2 {
 	//
 	// }
+	// == 只能用来检查 map 是否为 nil。
 	if map1 == nil {
 		t.Log("map1 is nil")
 	} else {
