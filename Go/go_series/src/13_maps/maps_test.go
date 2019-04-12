@@ -12,7 +12,7 @@ func TestMakeMaps(t *testing.T) {
 	if personSalary == nil {
 		t.Log("map is nil. Going to make one.")
 
-		//如果你想添加元素到 nil map 中，会触发运行时 panic
+		// 如果你想添加元素到 nil map 中，会触发运行时 panic
 		// personSalary["steve"] = 5000 // assignment to entry in nil map [recovered]
 
 		// 使用make语法创建map

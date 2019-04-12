@@ -13,7 +13,7 @@ import (
 // 一个数组的表示形式为 [n]T。n 表示数组中元素的数量，T 代表每个元素的类型。
 // 元素的数量 n 也是该类型的一部分
 func TestDeclareArray(t *testing.T) {
-	// var a[3]int 声明了一个长度为 3 的整型数组。数组中的所有元素都被自动赋值为数组类型的零值。
+	// var a [3]int 声明了一个长度为 3 的整型数组。数组中的所有元素都被自动赋值为数组类型的零值。
 	var a [3]int
 	t.Log(a)
 
@@ -93,7 +93,7 @@ func TestIteratingArray(t *testing.T) {
 
 // 多维数组
 func TestMultidimessionalArray(t *testing.T) {
-	// 简单声明并初始化
+	// 简短声明并初始化
 	a := [3][2]string{
 		{"lion", "tiger"},
 		{"cat", "dog"},

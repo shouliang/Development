@@ -11,5 +11,4 @@ func mutate(s string) string {
 func main() {
 	h := "hello"
 	fmt.Println(mutate(h))
-
 }

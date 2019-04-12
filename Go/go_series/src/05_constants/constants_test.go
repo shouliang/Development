@@ -35,10 +35,10 @@ func TestStringConstants(t *testing.T) {
 	// Go 是一个强类型的语言，在分配过程中混合类型是不允许的
 	// var defaultName = "Sam"         // 允许
 	// type myString string            // 自定义一个新类型myString
-	// var customName myString = "Sam" // 允许：因常量Sam是无类线的，可以分配给任何字符串变量
+	// var customName myString = "Sam" // 允许：因常量Sam是无类型的，可以分配给任何字符串变量
 	//
 	// // cannot use defaultName (type string) as type myString in assignment
-	// customName = defaultName // 不允许：类型不一致，customName是myString类型，defaultName是string类型
+	// customName = defaultName // 不允许：类型不一致，defaultName是string类型，customName是myString类型，
 }
 
 // 布尔常量
@@ -47,7 +47,9 @@ func TestBoolConstants(t *testing.T) {
 	// type myBool bool
 	// var defualtBool = trueConst       // 允许
 	// var customBool myBool = trueConst // 允许
-	// defualtBool = customBool          // 不允许： 类型不一致
+	//
+	// // cannot use customBool (type myBool) as type bool in assignment
+	// defualtBool = customBool // 不允许： 类型不一致
 
 }
 
