@@ -1,12 +1,12 @@
 package main
 
 import (
+	"07_packages/geometry/rectangle" // 导入自定义包
 	"fmt"
-	"geometry/rectangle" // 导入自定义包
 	// 导入了包，却不在代码中使用它，这在 Go 中是非法的。当这么做时，编译器是会报错的。
 	// 其原因是为了避免导入过多未使用的包，从而导致编译时间显著增加
 	// 然而，在程序开发的活跃阶段，又常常会先导入包，而暂不使用它。遇到这种情况就可以使用空白标识符 _。
-	// _ "geometry/rectangle" // _ 空白标识符在此只会调用包中的init函数，而不会使用包中的函数和变量
+	// _ "07_packages/geometry/rectangle" // _ 空白标识符在此只会调用包中的init函数，而不会使用包中的函数和变量
 	"log"
 )
 
