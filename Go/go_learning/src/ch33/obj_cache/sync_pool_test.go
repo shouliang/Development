@@ -1,4 +1,4 @@
-package obj_cache
+package objcache
 
 import (
 	"fmt"
