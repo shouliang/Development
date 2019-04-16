@@ -1,22 +1,8 @@
-/*
-运行时 panic
-运行时错误（如数组越界）也会导致 panic。这等价于调用了内置函数 panic，
-其参数由接口类型 runtime.Error 给出。runtime.Error 接口的定义如下：
-
-type Error interface {
-    error
-    // RuntimeError is a no-op function but
-    // serves to distinguish types that are run time
-    // errors from ordinary errors: a type is a
-    // run time error if it has a RuntimeError method.
-    RuntimeError()
-}
-而 runtime.Error 接口满足内建接口类型 error。
-*/
-package panic05
+package panic06
 
 import (
 	"fmt"
+	"runtime/debug"
 	"testing"
 )
 
@@ -29,7 +15,7 @@ func r() {
 		实际上，在上述程序里，恢复 panic 之后，我们就失去了堆栈跟踪。
 		有办法可以打印出堆栈跟踪，就是使用 Debug 包中的 PrintStack 函数。
 		*/
-		// debug.PrintStack()
+		debug.PrintStack()
 	}
 }
 

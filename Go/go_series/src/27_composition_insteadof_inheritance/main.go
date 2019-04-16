@@ -34,6 +34,11 @@ func (p post) details() {
 	fmt.Println("Bio: ", p.bio)
 }
 
+// post 可以自定义 fullName() 这样就会覆盖掉嵌套类中的方法
+// func (p post) fullName() string {
+// 	return "just post fullName"
+// }
+
 // 结构体切片的嵌套
 type website struct {
 	// 错误的原因是结构体不能嵌套一个匿名切片。我们需要一个字段名
@@ -42,7 +47,7 @@ type website struct {
 }
 
 func (w website) contents() {
-	fmt.Println("Contents of Website\n")
+	fmt.Printf("Contents of Website\n")
 	for _, v := range w.posts {
 		v.details()
 		fmt.Println()

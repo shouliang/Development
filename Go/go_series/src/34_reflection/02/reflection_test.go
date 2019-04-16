@@ -1,7 +1,6 @@
 package reflection02
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 )
@@ -18,11 +17,11 @@ reflect.Type 和 reflect.Value
 reflect.Type 表示 interface{} 的具体类型，而 reflect.Value 表示它的具体值。
 */
 
-func createQuery(q interface{}) {
-	t := reflect.TypeOf(q)
+func createQuery(q interface{}, t *testing.T) {
+	ty := reflect.TypeOf(q)
 	v := reflect.ValueOf(q)
-	fmt.Println("Type ", t)
-	fmt.Println("Value ", v)
+	t.Log("Type ", ty)
+	t.Log("Value ", v)
 }
 
 func TestQueryReflectTypeAndReflectValue(t *testing.T) {
@@ -30,5 +29,5 @@ func TestQueryReflectTypeAndReflectValue(t *testing.T) {
 		ordId:      1234,
 		customerId: 567,
 	}
-	createQuery(o)
+	createQuery(o, t)
 }

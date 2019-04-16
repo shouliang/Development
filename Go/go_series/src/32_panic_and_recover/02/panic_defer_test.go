@@ -33,5 +33,7 @@ func TestPanic(t *testing.T) {
 	defer fmt.Println("defer call in main")
 	firstName := "Elon"
 	fullName(&firstName, nil)
+
+	// 发生panic，后续语句不会执行到
 	fmt.Println("returned normally from main")
 }

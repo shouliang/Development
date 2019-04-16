@@ -28,6 +28,7 @@ type TimeAndMaterial struct {
 	hourlyRate  int
 }
 
+// FixedBilling 实现了接口中的所有方法
 func (fb FixedBilling) calculate() int {
 	return fb.biddedAmount
 }
@@ -36,6 +37,7 @@ func (fb FixedBilling) source() string {
 	return fb.projectName
 }
 
+// TimeAndMaterial 实现了接口中的所有方法
 func (tm TimeAndMaterial) calculate() int {
 	return tm.noOfHours * tm.hourlyRate
 }
@@ -51,6 +53,7 @@ type Advertisement struct {
 	noOfClicks int
 }
 
+// 新增一个广告收入流：calculateNetIncome 实现了接口中的所有方法
 func (a Advertisement) calculate() int {
 	return a.CPC * a.noOfClicks
 }
@@ -68,7 +71,7 @@ func calculateNetIncome(ic []Income) {
 		fmt.Printf("Income From %s = $%d\n", income.source(), income.calculate())
 		netincome += income.calculate()
 	}
-	fmt.Printf("Net income of organization = $%d", netincome)
+	fmt.Printf("Net income of organization = $%d\n", netincome)
 }
 
 func main() {

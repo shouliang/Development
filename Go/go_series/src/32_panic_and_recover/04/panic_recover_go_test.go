@@ -30,5 +30,7 @@ func b() {
 
 func TestRecover(t *testing.T) {
 	a()
+
+	// panic后续语句不会执行，除了defer语句
 	fmt.Println("normally returned from main")
 }
