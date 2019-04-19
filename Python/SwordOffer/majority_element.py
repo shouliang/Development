@@ -11,22 +11,22 @@ class Solution:
             return nums[begin]
         else:
             mid = begin + ((end - begin) >> 1)
-            left = self.find(nums, begin, mid)
-            right = self.find(nums, mid + 1, end)
+            leftMajority = self.find(nums, begin, mid)
+            rightMajority = self.find(nums, mid + 1, end)
 
-            if left == right:
-                return left
+            if leftMajority == rightMajority:
+                return leftMajority
             else:
-                countleft, countright = 0, 0
+                leftCount, rightCount = 0, 0
                 for i in range(begin, end):
-                    if nums[i] == left:
-                        countleft += 1
-                    elif nums[i] == right:
-                        countright += 1
-                if countleft >= countright:
-                    return left
+                    if nums[i] == leftMajority:
+                        leftCount += 1
+                    elif nums[i] == rightMajority:
+                        rightCount += 1
+                if leftCount >= rightCount:
+                    return leftMajority
                 else:
-                    return right
+                    return rightMajority
 
 
 nums = [6, 5, 5]
