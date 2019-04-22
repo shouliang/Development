@@ -42,6 +42,7 @@ class Solution:
                     right -= 1
                 elif diff == 0:
                     res.append((nums[i], nums[left], nums[right]))        # 符合条件，加入结果集
+                    
                     while left < right and nums[left] == nums[left + 1]:  # 相邻的元素相等的则直接跳过
                         left += 1
                     while left < right and nums[right] == nums[right - 1]:
