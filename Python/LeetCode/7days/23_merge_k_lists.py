@@ -14,11 +14,10 @@
 
 
 # Definition for singly-linked list.
-class ListNode:
+class ListNode(object):
     def __init__(self, x):
         self.val = x
         self.next = None
-
 
 class Solution:
     def mergeKLists(self, lists):
@@ -45,20 +44,18 @@ class Solution:
         return self.merge(left, right)
 
     # 合并有序链表
-    def merge(self, left, right):
-        if not left:
-            return right
-        if not right:
-            return left
+    def merge(self, l1, l2):
+        if not l1:
+            return l2
+        if not l2:
+            return l1
 
-        if left.val < right.val:
-            temp = left
-            temp.next = self.merge(left.next, right)  # 递归调用
-            return temp
+        if l1.val < l2.val:
+            l1.next = self.merge(l1.next, l2)  # 递归调用
+            return l1
         else:
-            temp = right
-            temp.next = self.merge(left, right.next)
-            return temp
+            l2.next = self.merge(l1, l2.next)
+            return l2
 
 
 l11 = ListNode(1)

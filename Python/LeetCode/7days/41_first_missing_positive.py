@@ -24,7 +24,7 @@ class Solution(object):
         """
         n = len(nums)
         for i in range(n):
-            while (nums[i]>0 and nums[i]<=n) and (nums[i]!=nums[ nums[i] -1]) :
+            while (nums[i]>=1 and nums[i]<=n) and (nums[i]!=nums[ nums[i] -1]) :
                 tmp = nums[i]
                 nums[i] = nums[nums[i] -1]
                 nums[tmp -1]= tmp        
