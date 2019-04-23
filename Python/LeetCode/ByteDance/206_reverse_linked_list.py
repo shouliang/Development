@@ -11,12 +11,9 @@ class ListNode:
         self.next = None
 
 # 反转链表
-
-
 class Solution:
     def reverseList(self, head):
         """
-        反转链表
         :param head: ListNode
         :return:
         """
@@ -27,9 +24,10 @@ class Solution:
         while cur:
             # tmp保存cur的下一个节点信息
             # 这样保证单链表不会因为失去当前节点的next而断裂
-            tmp = cur.next
             # 保存完当前节点的next后，就可以让其next重新指向前一个节点prev
+            tmp = cur.next
             cur.next = pre
+            
             # 让prev和cur都向后移动一个节点，继续下一次的指针反转
             pre = cur
             cur = tmp

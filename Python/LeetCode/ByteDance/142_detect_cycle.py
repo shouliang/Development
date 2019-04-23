@@ -22,7 +22,7 @@ class Solution(object):
             slow = slow.next
             fast = fast.next.next
             if slow is fast:
-                slow = head
+                slow = head             # 相遇后，让慢指针回到链表表头，而后再同步
                 while slow is not fast:
                     slow = slow.next
                     fast = fast.next
