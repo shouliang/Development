@@ -7,7 +7,7 @@
 class Solution(object):
     def isValid(self, s):
         if not s:
-            return False
+            return True
         stack = []
         hash_map = {')': '(', ']': '[', '}': '{'}
 
@@ -15,8 +15,8 @@ class Solution(object):
         # 否则就是右括号，需要和栈顶元素比较，如果匹配则出栈直到栈为空，否则就是不匹配
         for c in s:
             if c not in hash_map:
-                stack.append(c)
-            elif not stack or hash_map[c] != stack.pop():
+                stack.append(c)                           # 压入左括号
+            elif not stack or stack.pop() != hash_map[c]: # 根据右括号从hash_map获取左括号 并和 栈顶的左括号比较
                 return False
         return not stack
 
