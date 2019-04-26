@@ -1,11 +1,11 @@
 # 两两比较然后交换，第一次将n个中最大的交换到倒数第1个位置
 #                第二次将剩余的n-1个最大值交换到倒数第2个位置
-def bubbleSort(lyst):
-    n = len(lyst)
+def bubbleSort(nums):
+    n = len(nums)
     for i in range(n - 1):
-        for j in range(n - i - 1):
-            if lyst[j] > lyst[j + 1]:  # 前面一个比后面大，就交换
-                swap(lyst, j, j + 1)
+        for j in range((n - 1) - i):
+            if nums[j] > lyst[j + 1]:  # 前面一个比后面大，就交换，最近的排序的结果就是从小到大
+                swap(nums, j, j + 1)
 
 
 
