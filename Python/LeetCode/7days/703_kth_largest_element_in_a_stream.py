@@ -2,8 +2,7 @@
 返回数据流中第K大元素  
 703. Kth Largest Element in a Stream: https://leetcode.com/problems/kth-largest-element-in-a-stream/
 '''
-import heapq
-
+import heapq  # 引入堆栈
 
 class KthLargest:
 
@@ -15,15 +14,10 @@ class KthLargest:
             self.add(num)
 
     def add(self, val):
-        # 维护一个k个元素的小顶堆: 堆顶元素比堆中所有元素都小
-        # Python中小顶堆的第一个元素就是小顶堆的最小值
-        # 每次add新元素num时，只有当 num > 小顶堆堆顶值的，将其插入小顶堆
-        # Python中heapq会自动维护，使小顶堆最小值在堆顶
-        if len(self.topNums) < self.k:
-            heapq.heappush(self.topNums, val)
+        if len(self.topNums) < self.k :
+            heapq.heappush(self.topNums,val)  # heaq. heappush
         elif self.topNums[0] < val:
-            heapq.heappushpop(self.topNums, val)  # push and pop 替换小顶堆的 堆顶元素
-
+            heapq.heappushpop(self.topNums,val)  # heapq.  heappushpop
         return self.topNums[0]
 
 
@@ -31,7 +25,7 @@ class KthLargest:
 k = 2
 nums = [4, 5, 8, 2]
 obj = KthLargest(k, nums)
-obj.add(3)
+print(obj.add(3))
 obj.add(5)
 obj.add(10)
 obj.add(9)
