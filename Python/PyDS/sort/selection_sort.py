@@ -8,7 +8,7 @@ def selectionSort(nums):
     n = len(nums)
     for i in range(n-1):  # 外层循环只需要n-1次，从0到n-1
         minIndex = i   
-        for j in range(i + 1, n):  # 从 i 到 n 中 中找出最小的,因为初始化时minIndex = i 也参与比较
+        for j in range(i + 1, n):  # 从 i 到 n 中 中找出最小的,因为初始化时minIndex = i 也参与比较，另range函数的右边是开区间的
             if nums[j] < nums[minIndex]:
                 minIndex = j
 
