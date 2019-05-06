@@ -36,6 +36,7 @@
     再去对于没有遍历到的人在找其朋友圈的人，这样就能求出个数。
     其实这道题的本质是之前那道题Number of Connected Components in an Undirected Graph，
     其实许多题目的本质都是一样的，就是看我们有没有一双慧眼能把它们识别出来：
+参考：https://www.cnblogs.com/grandyang/p/6686983.html    
 '''
 
 
@@ -45,21 +46,22 @@ class Solution:
         :type M: List[List[int]]
         :rtype: int
         """
-        n = len(M)
-        result = 0
-        visited = [False] * n
+        n = len(M)              # 邻接矩阵的len即为图中顶点的个数，此例中即为人员的个数
+        res = 0
+        visited = [False] * n   
         for i in range(n):       # 对每一个未访问过的顶点进行深度遍历
             if not visited[i]:
                 self.dfs(M, i, visited)
-                result += 1      # 某一个顶点深度遍历完毕后，朋友圈个数自增1
-        return result
+                res += 1        # 某一个顶点深度遍历完毕后，朋友圈个数自增1
+        return res
 
     def dfs(self, M, start, visited):
         visited[start] = True
 
+        # 访问所有的邻居
         for i in range(len(M)):  # 遍历顶点与start相邻的顶点，且此顶点未被访问过
             if M[start][i] and visited[i] == False:
-                self.dfs(M, i, visited)
+                self.dfs(M, i, visited)  # 递归调用
 
 
 M1 = [[1, 1, 0],

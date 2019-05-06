@@ -21,17 +21,18 @@ init() {
 '''
 
 
-'''
-极客时间-算法面试-DFS模板-递归版本 
-visited = set()
-def dfs(node,visited):
-    visited.add(node)
-    # process current node here
 
-    for next_node in node.children():
-        if next_node not in visited:
-            dfs(next_node, visited) 
-'''
+# 极客时间-算法面试-DFS模板-递归版本 
+visited = set()
+def __dfs(start,visited):
+    visited.add(start)  # 将当前节点标记为已访问
+    # process current node here
+   
+    # 遍历当前节点的相邻结点
+    for node in start.children():
+        if node not in visited:
+            dfs(node, visited) # 递归调用
+
 
 
 # 深度遍历--递归版
