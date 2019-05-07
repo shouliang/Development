@@ -38,3 +38,15 @@ class Solution(object):
         self.DFS(i + 1, j)
         self.DFS(i, j - 1)
         self.DFS(i, j + 1)
+
+
+grid = [
+    ["1", "1", "1", "1", "0"],
+    ["1", "1", "0", "1", "0"],
+    ["1", "1", "0", "0", "1"],
+    ["0", "0", "0", "1", "1"]
+]
+
+s = Solution()
+nums = s.numIslands(grid)
+print(nums)

@@ -32,6 +32,39 @@ class Solution(object):
                 heapq.heappushpop(top_nums, nums[i])
         return top_nums[0]  # 最后返回小顶堆堆顶，即为第k个大小的元素
 
+    # 利用快排思想：题目中要求的是第k大的元素，故选择一个pivot，让其左边比其大，右边比其小
+    def _findKthLargest(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+
+        low, high = 0, len(nums)-1
+        while low <= high:
+            pivot = self.partition(nums, low, high)
+            if pivot == k - 1:
+                return nums[pivot]
+            elif pivot > k - 1:
+                high = pivot - 1
+            else:
+                low = pivot + 1
+
+    def partition(self, nums, low, high):
+        pivotValue = nums[high]
+        i = low
+        for j in range(low, high):
+            if nums[j] > pivotValue:    # 此处有变动，pivot左边比其要大，右边比其要小，因为题目要求是求第k大的元素
+                self.swap(nums, i, j)
+                i += 1
+        self.swap(nums, i, high)
+        return i
+
+    def swap(self, nums, i, j):
+        nums[i], nums[j] = nums[j], nums[i]
+
+
+
 
 s = Solution()
 
@@ -41,4 +74,8 @@ print(kth)
 
 nums, k = [3, 2, 3, 1, 2, 4, 5, 5, 6], 4
 kth = s.findKthLargest(nums, k)
+print(kth)
+
+nums, k = [3, 2, 3, 1, 2, 4, 5, 5, 6], 4
+kth = s._findKthLargest(nums, k)
 print(kth)
