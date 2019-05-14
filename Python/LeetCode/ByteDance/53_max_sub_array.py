@@ -40,19 +40,26 @@ class Solution:
         return max_sum
 
 
+# 动态规划
 class Solution2:
     def maxSubArray(self, nums):
         """
         :type nums: List[int]
         :rtype: int
         """
-        dp = [0] * len(nums)  # 动态规划
-        dp[0] = nums[0]
+        # 初始化
+        sub_sum = [0] * len(nums)  # sub_sum[i]为以第i个元素结尾且和最大的连续子数组
+        sub_sum[0] = nums[0]
         max_sum = nums[0]
 
         for i in range(1, len(nums)):
-            dp[i] = nums[i] + (dp[i-1] if dp[i-1] > 0 else 0)  # 动态规划递推公式
-            max_sum = max(max_sum, dp[i])
+            # sub_sum[i] = nums[i] + (sub_sum[i-1] if sub_sum[i-1] > 0 else 0)  # 动态规划递推公式
+            # 那么以第i个元素结尾且和最大的连续子数组实际上，要么是以第i-1个元素结尾且和最大的连续子数组加上这个元素，要么是只包含第i个元素，
+            if sub_sum[i - 1] < 0:
+                sub_sum[i] = nums[i]
+            else:
+                sub_sum[i] = sub_sum[i - 1] + nums[i]
+            max_sum = max(max_sum, sub_sum[i])
 
         return max_sum
 

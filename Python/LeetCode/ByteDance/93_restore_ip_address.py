@@ -3,7 +3,7 @@
 93. Restore IP Addresses:https://leetcode.com/problems/restore-ip-addresses/
 '''
 
-
+# 思路： DFS + backtracking （深度遍历 + 回溯）
 class Solution:
     def restoreIpAddresses(self, s):
         """
@@ -21,7 +21,7 @@ def dfs(s, start, path, result):
     if len(path) == 4 and start == len(s):  # 递归终止判断
         result.append(".".join(path))
         return
-    for i in range(1, 4):        # 截取从start开始的1-3个字符串
+    for i in range(1, 4):        # 截取从start开始的1-3个字符串，类似于图遍历时，遍历所有相邻的顶点
         if start + i <= len(s):  # 判断下标是否越界
             number = s[start:start + i]  # 截取字符串
             if isValid(number):          # 判断字符串是否是合法的IP
@@ -40,7 +40,7 @@ def isValid(s):
 
 
 s = "25525511135"
-s = "010010"
+# s = "010010"
 
 solution = Solution()
 res = solution.restoreIpAddresses(s)
