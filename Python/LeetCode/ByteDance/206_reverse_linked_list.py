@@ -11,6 +11,8 @@ class ListNode:
         self.next = None
 
 # 反转链表
+
+
 class Solution:
     def reverseList(self, head):
         """
@@ -27,11 +29,11 @@ class Solution:
             # 保存完当前节点的next后，就可以让其next重新指向前一个节点prev
             tmp = cur.next
             cur.next = pre
-            
+
             # 让prev和cur都向后移动一个节点，继续下一次的指针反转
             pre = cur
             cur = tmp
-        return pre
+        return pre  # 此时pre指向最后一个结点，因为链表已经反转，故从pre指针开始遍历会一直遍历到开始
 
 
 # test, 建立链表1->2->3->4->None
@@ -44,6 +46,11 @@ p1.next = p2
 p2.next = p3
 
 s = Solution()
+p = head
+while p:
+    print(p.val)
+    p = p.next
+
 p = s.reverseList(head)
 # 输出链表 4->3->2->1->None
 while p:

@@ -78,7 +78,7 @@ func TestShortHandDeclaration(t *testing.T) {
 	// 简短声明的语法要求 := 操作符的左边至少有一个变量是尚未声明的。
 	a, b := 20, 30
 	t.Log("a is", a, "b is", b)
-	b, c := 40, 50 // b已经声明，但c尚未声明，所有允许
+	b, c := 40, 50 // b已经声明，但c尚未声明，所以允许
 	t.Log("b is", b, "c is", c)
 
 	x, y := 99, 100
