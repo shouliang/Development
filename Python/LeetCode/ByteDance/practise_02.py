@@ -291,7 +291,7 @@ def dfs_01(grid, i, j, rows, cols):
 
                 mid = low + ((high - low) >> 1)
                 left = self.partition(lists, low, mid)
-                rihgt = self.partition(lists, mid + 1, high)
+                right = self.partition(lists, mid + 1, high)
                 return self.merge(left, right)
 
             def merge(self, l1, l2):
