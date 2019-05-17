@@ -2,14 +2,17 @@
 // 然后这个切片可以进行任何想要的改变，然后再转化为一个字符串
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 func mutate(s []rune) string {
 	s[0] = 'a'
 	return string(s)
 }
 
-func main() {
+func TestImmutable(t *testing.T) {
 	h := "hello"
 	fmt.Println(mutate([]rune(h))) // 类型转换语法为T(v),v为参数，T为要转换的新类型
 }
