@@ -2,7 +2,10 @@
 // 在 Go 语言中，rune 表示一个代码点。代码点无论占用多少个字节，都可以用一个 rune 来表示
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 // %x 以十六进制打印每个字节
 func printBytes(s string) {
@@ -19,7 +22,7 @@ func printChars(s string) {
 	}
 }
 
-func main() {
+func TestRune(t *testing.T) {
 	name := "Hello World"
 	printBytes(name)
 	fmt.Printf("\n")

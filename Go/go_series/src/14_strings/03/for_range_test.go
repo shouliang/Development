@@ -3,7 +3,10 @@
 // 所以打印汉字也不会出现乱码
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 func printCharsAndBytes(s string) {
 	for index, r := range s {
@@ -11,7 +14,7 @@ func printCharsAndBytes(s string) {
 	}
 }
 
-func main() {
+func TestForRange(t *testing.T) {
 	// 1个汉字占用3个字节
 	china := "china中华人民共和国"
 	printCharsAndBytes(china)
