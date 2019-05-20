@@ -4,7 +4,7 @@
 package main
 
 import (
-	"fmt"
+	"testing"
 	"time"
 )
 
@@ -18,7 +18,7 @@ func server2(ch chan string) {
 	ch <- "from server2"
 }
 
-func main() {
+func TestSelect(t *testing.T) {
 	output1 := make(chan string)
 	output2 := make(chan string)
 
@@ -27,8 +27,8 @@ func main() {
 
 	select {
 	case s1 := <-output1:
-		fmt.Println(s1)
+		t.Log(s1)
 	case s2 := <-output2:
-		fmt.Println(s2)
+		t.Log(s2)
 	}
 }

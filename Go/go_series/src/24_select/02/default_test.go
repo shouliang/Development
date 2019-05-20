@@ -4,7 +4,7 @@
 package main
 
 import (
-	"fmt"
+	"testing"
 	"time"
 )
 
@@ -13,7 +13,7 @@ func process(ch chan string) {
 	ch <- "process successful"
 }
 
-func main() {
+func TestSelectDefault(t *testing.T) {
 	ch := make(chan string)
 	go process(ch)
 
@@ -22,10 +22,10 @@ func main() {
 		time.Sleep(1000 * time.Millisecond)
 		select {
 		case v := <-ch:
-			fmt.Println("received value:", v)
+			t.Log("received value:", v)
 			return
 		default:
-			fmt.Println("no value received")
+			t.Log("no value received")
 		}
 	}
 }
