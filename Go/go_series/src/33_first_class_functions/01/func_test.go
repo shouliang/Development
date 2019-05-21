@@ -3,28 +3,30 @@
 // Go 语言支持头等函数的机制。
 package main
 
-import "fmt"
+import (
+	"testing"
+)
 
-func main() {
+func TestFunc(t *testing.T) {
 	// 将一个匿名函数赋值给变量a
 	a := func() {
-		fmt.Println("hello world first class function")
+		t.Log("hello world first class function")
 	}
 
 	// 调用函数
 	a()
 
 	// 打印出变量a的类型为 func()
-	fmt.Printf("%T\n", a)
+	t.Logf("%T", a)
 
 	// 匿名函数：不需要赋值给一个变量，可立即执行
 	func() {
-		fmt.Println("anonymous function without assigning it to a variable")
+		t.Log("anonymous function without assigning it to a variable")
 	}()
 
 	// 匿名函数：传递参数
 	func(name string) {
-		fmt.Println("Welcome", name)
+		t.Log("Welcome", name)
 	}("Gophers")
 
 }

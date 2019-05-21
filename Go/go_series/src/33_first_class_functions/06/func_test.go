@@ -1,7 +1,10 @@
 // 闭包:每一个闭包都会绑定一个它自己的外围变量（Surrounding Variable）
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 func appendStr() func(string) string {
 	t := "Hello"
@@ -16,7 +19,7 @@ func appendStr() func(string) string {
 	return c
 }
 
-func main() {
+func TestCourse(t *testing.T) {
 	// 变量a、b都是闭包，它们绑定了各自的t值
 	a := appendStr()
 	b := appendStr()
