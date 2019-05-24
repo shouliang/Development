@@ -1,9 +1,0 @@
-syntax = "proto3" ;
-package go.micro.srv.consignment;
-
-// 货轮微服务
-service ShippingService {
-    // 托运一批货物
-    rpc CreateConsignment (consignment) returns (Response) {
-    }
-}
