@@ -24,3 +24,10 @@ git reset --merge [prior git versions]
 3) Don't forget to add and commit the merge.
 
 4) git pull now should work fine.
+
+
+----------------------------------------
+查看所有分支 git branch -a ,a为all
+查看远程分支 git branch -r ,r为remote
+查看远程地址，远程分支，还有本地分支与之相对应关系等信息 git remote show origin
+删除了那些远程仓库不存在的分支 git remote prune origin
