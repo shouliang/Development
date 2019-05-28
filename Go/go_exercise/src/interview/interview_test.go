@@ -1,4 +1,4 @@
-package structtest
+package interview
 
 import (
 	"fmt"
@@ -78,4 +78,65 @@ func (t *Teacher) ShowB() {
 func TestOOP(t *testing.T) {
 	teacher := Teacher{}
 	teacher.ShowA()
+}
+
+func TestSelect(t *testing.T) {
+	runtime.GOMAXPROCS(1)
+	intChan := make(chan int, 1)
+	stringChan := make(chan string, 1)
+	intChan <- 1
+	stringChan <- "hello"
+	select {
+	case value := <-intChan:
+		t.Log(value)
+	case value := <-stringChan:
+		panic(value)
+	}
+}
+
+func calc(index string, a, b int) int {
+	ret := a + b
+	fmt.Println(index, a, b, ret)
+	return ret
+}
+
+func TestDefer(t *testing.T) {
+	a := 1
+	b := 2
+	defer calc("1", a, calc("10", a, b))
+	a = 0
+	defer calc("2", a, calc("20", a, b))
+	b = 1
+}
+
+func TestAppend(t *testing.T) {
+	s := make([]int, 5)
+	s = append(s, 1, 2, 3)
+	t.Log(s)
+
+	s1 := make([]int, 0)
+	s1 = append(s1, 1, 2, 3)
+	t.Log(s1)
+}
+
+type Person interface {
+	Speak(string) string
+}
+
+type Stduent struct{}
+
+func (stu *Stduent) Speak(think string) (talk string) {
+	if think == "bitch" {
+		talk = "You are a good boy"
+	} else {
+		talk = "hi"
+	}
+	return
+}
+
+func TestMethod(t *testing.T) {
+	// var per Person = Stduent{}
+	var per Person = &Stduent{}
+	think := "bitch"
+	fmt.Println(per.Speak(think))
 }

@@ -2,7 +2,6 @@ package error_test
 
 import (
 	"errors"
-	"fmt"
 	"testing"
 )
 
@@ -36,10 +35,10 @@ func TestGetFibnacci(t *testing.T) {
 	// 判断err!=nil，及早失败，避免嵌套过深，所有的错误都没有后，才正确输出
 	if v, err := GetFibonacci(n); err != nil {
 		if err == LessThanTwoError {
-			fmt.Println("It is less.")
+			t.Log("It is less.")
 		}
 		if err == LargerThanHundredError {
-			fmt.Println("It is large.")
+			t.Log("It is large.")
 		}
 		t.Error(err)
 	} else {

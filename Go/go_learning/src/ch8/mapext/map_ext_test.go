@@ -22,15 +22,15 @@ func TestMapForSet(t *testing.T) {
 	if mySet[n] {
 		t.Logf("%d is existing", n)
 	} else {
-		t.Logf("%d is existing", n)
+		t.Logf("%d is not existing", n)
 	}
 	mySet[5] = false
 	t.Log(len(mySet))
 
-	delete(mySet, 1)
+	delete(mySet, 1) // 删除1
 	if mySet[n] {
 		t.Logf("%d is existing", n)
 	} else {
-		t.Logf("%d is existing", n)
+		t.Logf("%d is not existing", n)
 	}
 }

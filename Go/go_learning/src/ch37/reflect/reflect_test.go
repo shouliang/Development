@@ -55,9 +55,10 @@ func TestInvokeByName(t *testing.T) {
 	if nameField, ok := reflect.TypeOf(*e).FieldByName("Name"); !ok {
 		t.Error("Failed to get 'Name' field.")
 	} else {
-		t.Log("Tag:format", nameField.Tag.Get("format"))
+		t.Log("Tag:format", nameField.Tag.Get("format")) // Get Tag
 	}
 
+	// 修改属性值，call方法让你联想其javascript中的call
 	reflect.ValueOf(e).MethodByName("UpdateAge").Call([]reflect.Value{reflect.ValueOf(1)})
 	t.Log("Update Age:", e)
 }

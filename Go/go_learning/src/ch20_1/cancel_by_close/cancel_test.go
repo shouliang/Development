@@ -42,8 +42,8 @@ func TestCancel(t *testing.T) {
 	}
 
 	// 只能取消掉一个协程goroutine
-	cancel_1(cancelChan)
+	// cancel_1(cancelChan)
 
-	// cancel_2(cancelChan)
+	cancel_2(cancelChan)
 	time.Sleep(time.Second * 1)
 }

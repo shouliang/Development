@@ -23,6 +23,7 @@ func TestSliceInit(t *testing.T) {
 
 	// append一个元素后，len也相应的增长，故可以访问s2[3]了
 	s2 = append(s2, 9)
+	t.Log(len(s2), cap(s2))
 	t.Log(s2[0], s2[1], s2[2], s2[3])
 }
 
@@ -49,8 +50,8 @@ func TestSliceShareMemory(t *testing.T) {
 }
 
 func TestSliceComparing(t *testing.T) {
-	a := []int{1, 3, 2, 4}
-	b := []int{1, 3, 2, 4}
+	// a := []int{1, 3, 2, 4}
+	// b := []int{1, 3, 2, 4}
 
 	// 以下语句的报错信息：slice can only be compared to nil 切片只能和nil进行比较
 	// if a == b {

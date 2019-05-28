@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 )
-
+// go get -u github.com/mailru/easyjson/...
 // ~/go/bin/easyjson -all struct_def.go 就会生成 struct_def_easyjson.go
 
 var jsonStr = `{

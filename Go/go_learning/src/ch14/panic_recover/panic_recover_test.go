@@ -10,17 +10,17 @@ import (
 )
 
 func TestPanicVxExit(t *testing.T) {
-	// defer func() {
-	// 	fmt.Println("Finally")
-	// }()
+	defer func() {
+		fmt.Println("Finally")
+	}()
 
 	// recover接收从panic传递出来的error,进行恢复处理，故程序运行正常，没有抛出错误调用栈
 	// 不处理，容易造成僵尸进程，倒不如让你crash, "let it crash",守护进程会重启来发现错误
-	defer func() {
-		if err := recover(); err != nil {
-			fmt.Println("recovered from", err)
-		}
-	}()
+	// defer func() {
+	// 	if err := recover(); err != nil {
+	// 		fmt.Println("recovered from", err)
+	// 	}
+	// }()
 
 	fmt.Println("start")
 

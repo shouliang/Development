@@ -48,12 +48,12 @@ func TestCreateEmployeeObj(t *testing.T) {
 
 func TestStructOperations(t *testing.T) {
 	e := Employee{"3", "Mary", 23}
-	fmt.Printf("Address is of e.Name is %x\n", &e.Name)
+	t.Logf("Address is of e.Name is %x\n", &e.Name)
 	t.Log(e.String1())
 	t.Log(e.String2())
 
 	// e1 := &Employee{"2", "Lucy", 24}
-	// fmt.Printf("Address is of e1.Name is %x\n", &e1.Name)
+	// t.Logf("Address is of e1.Name is %x\n", &e1.Name)
 	// t.Log(e1.String1())
 	// t.Log(e1.String2())
 }

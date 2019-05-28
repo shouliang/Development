@@ -38,6 +38,7 @@ func TestCancel(t *testing.T) {
 		}(i, ctx)
 	}
 
+	// 调用cancel()函数
 	cancel()
 	time.Sleep(time.Second * 1)
 }

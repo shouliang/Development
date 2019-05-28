@@ -10,6 +10,7 @@ func TestStringFn(t *testing.T) {
 	s := "A,B,C"
 	// 字符串切割
 	parts := strings.Split(s, ",")
+	t.Log("parts is", parts)
 	for _, part := range parts {
 		t.Log(part)
 	}
