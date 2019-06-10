@@ -14,9 +14,7 @@ import (
 	"time"
 )
 
-// var palette = []color.Color{color.White, color.Black}
-var coloreGreen = color.RGBA({0xRR,0xGG,0xBB,0xff})
-var palette = []color.Color{color.G, color.Black}
+var palette = []color.Color{color.White, color.Black}
 
 const (
 	whiteIndex = 0
@@ -29,7 +27,7 @@ func main() {
 	rand.Seed(time.Now().UTC().UnixNano())
 	if len(os.Args) > 1 && os.Args[1] == "web" {
 		handler := func(w http.ResponseWriter, r *http.Request) {
-
+			lissajous(w)
 		}
 		http.HandleFunc("/", handler)
 		log.Fatal(http.ListenAndServe("localhost:8000", nil))
