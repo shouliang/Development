@@ -12,6 +12,7 @@ func main() {
 	log.Fatal(http.ListenAndServe("localhost:8000", nil))
 }
 
+// 处理函数
 func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "URL.Path = %q\n", r.URL.Path)
 }

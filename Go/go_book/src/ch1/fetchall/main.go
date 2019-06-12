@@ -14,10 +14,10 @@ func main() {
 	start := time.Now()
 	ch := make(chan string)
 	for _, url := range os.Args[1:] {
-		go fetch(url, ch)
+		go fetch(url, ch) // 启动一个goroutine
 	}
 	for range os.Args[1:] {
-		fmt.Println(<-ch)
+		fmt.Println(<-ch) // 从通道ch接收
 	}
 	fmt.Printf("%.2fs elapsed\n", time.Since(start).Seconds())
 }
@@ -26,9 +26,10 @@ func fetch(url string, ch chan<- string) {
 	start := time.Now()
 	resp, err := http.Get(url)
 	if err != nil {
-		ch <- fmt.Sprint(err)
+		ch <- fmt.Sprint(err) // 发送到通道
 		return
 	}
+	// io.Copy 写入ioutil.Discard即丢弃，只需要返回字节数
 	nbytes, err := io.Copy(ioutil.Discard, resp.Body)
 	resp.Body.Close()
 	if err != nil {

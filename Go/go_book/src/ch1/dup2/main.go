@@ -15,9 +15,9 @@ func main() {
 		countLines(os.Stdin, counts)
 	} else {
 		for _, arg := range files {
-			f, err := os.Open(arg)
+			f, err := os.Open(arg) // os.Open 返回两个值：打开的文件*os.File 和 error
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "dup2: %v\n", err)
+				fmt.Fprintf(os.Stderr, "dup2: %v\n", err) // 发生错误，写入系统标准错误：即控制台
 				continue
 			}
 			countLines(f, counts)

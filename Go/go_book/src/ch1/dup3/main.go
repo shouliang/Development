@@ -1,4 +1,4 @@
-// dup3
+// dup3 一次性读取文件内容到内存
 package main
 
 import (

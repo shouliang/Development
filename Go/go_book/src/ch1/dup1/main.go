@@ -9,7 +9,7 @@ import (
 
 func main() {
 	counts := make(map[string]int)
-	input := bufio.NewScanner(os.Stdin)
+	input := bufio.NewScanner(os.Stdin) // 处理以行为单位的输入内容的最简单方式： “流式读取”
 	// ctrl + d 结束标准输入
 	for input.Scan() {
 		counts[input.Text()]++
