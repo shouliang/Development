@@ -18,9 +18,10 @@ func TestTwo(t *testing.T) {
 	fmt.Println(c == 0)
 	fmt.Println(f >= 0)
 	// fmt.Println(c == f) // 编译错误，类型不同
-	fmt.Println(c == Celsius(f))
+	fmt.Println(c == Celsius(f)) // 类型需要显示转换 T(v)
 }
 
+// 类型声明String 方法，在变量通过fmt包作为字符串输出时，可以控制类型值的显示方式
 func (c Celsius) String() string { return fmt.Sprintf("%g°C of redefine", c) }
 
 func TestThree(t *testing.T) {
