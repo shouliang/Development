@@ -11,6 +11,7 @@ func main() {
 	}
 }
 
+// 向表示十进制非负整数的字符串中插入逗号
 func comma(s string) string {
 	n := len(s)
 	if n <= 3 {
