@@ -17,7 +17,8 @@ type Wheel struct {
 }
 
 func main() {
-	w := Wheel{
+	var w Wheel
+	w = Wheel{
 		Circle: Circle{
 			Point:  Point{X: 8, Y: 8},
 			Radius: 5,
