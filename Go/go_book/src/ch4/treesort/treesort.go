@@ -1,3 +1,4 @@
+// 二叉树插入
 package treesort
 
 type tree struct {

@@ -1,3 +1,4 @@
+// nonempty 演示了slice的就地修改算法
 package main
 
 import "fmt"
@@ -11,6 +12,7 @@ func main() {
 	fmt.Println(remove(s, 2))
 }
 
+// nonempty返回一个新的slice,slice中的元素都是非空字符串
 func nonempty(strings []string) []string {
 	i := 0
 	for _, s := range strings {

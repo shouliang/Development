@@ -27,12 +27,13 @@ var issueList = template.Must(template.New("issuelist").Parse(`
 </table>
 `))
 
+// 将模板输出为HTML的表格
 func main() {
 	result, err := github.SearchIssues(os.Args[1:])
 	if err != nil {
 		log.Fatal(err)
 	}
-	if err:= issueList.Execute(os.Stdout,result); err!=nil {
+	if err := issueList.Execute(os.Stdout, result); err != nil {
 		log.Fatal(err)
 	}
 

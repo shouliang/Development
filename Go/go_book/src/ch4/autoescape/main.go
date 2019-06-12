@@ -1,3 +1,4 @@
+// template.HTML自动转义受信任的HTML数据
 package main
 
 import (
@@ -15,6 +16,7 @@ func main() {
 	}
 	data.A = "<b>Hello!</b>"
 	data.B = "<b>Hello!</b>"
+	// 模板.Execute 数据
 	if err := t.Execute(os.Stdout, data); err != nil {
 		log.Fatal(err)
 	}

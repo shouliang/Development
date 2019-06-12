@@ -1,3 +1,4 @@
+// json.Marshal:结构体转换成JSON串，json.Unmarshal:JSON串转换成结构体
 package main
 
 import (

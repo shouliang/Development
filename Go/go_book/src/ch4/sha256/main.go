@@ -1,3 +1,4 @@
+// 使用SHA256加密散列算法
 package main
 
 import (

@@ -8,6 +8,7 @@ import (
 	"strings"
 )
 
+// 查询 GitHub 的 issue 跟踪接口
 func SearchIssues(terms []string) (*IssuesSearchResult, error) {
 	q := url.QueryEscape(strings.Join(terms, " "))
 	resp, err := http.Get(IssuesURL + "?q=" + q)

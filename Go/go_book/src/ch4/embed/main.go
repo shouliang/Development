@@ -1,3 +1,4 @@
+// 演示结构体嵌套和匿名成员
 package main
 
 import "fmt"
@@ -7,12 +8,12 @@ type Point struct {
 }
 
 type Circle struct {
-	Point
+	Point  // 匿名成员
 	Radius int
 }
 
 type Wheel struct {
-	Circle
+	Circle // 匿名成员
 	Spokes int
 }
 

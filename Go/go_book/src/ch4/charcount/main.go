@@ -1,3 +1,4 @@
+// charcount计算Unicode字符的个数
 package main
 
 import (
@@ -10,9 +11,9 @@ import (
 )
 
 func main() {
-	counts := make(map[rune]int)
-	var utflen [utf8.UTFMax + 1]int
-	invalid := 0
+	counts := make(map[rune]int)    // Unicode字符数量
+	var utflen [utf8.UTFMax + 1]int // UTF-8编码的长度
+	invalid := 0                    // 非法UTF-8字符数量
 
 	in := bufio.NewReader(os.Stdin)
 	for {

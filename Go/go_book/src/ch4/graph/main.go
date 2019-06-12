@@ -1,3 +1,4 @@
+// 使用结构体表示图graph
 package main
 
 import "fmt"

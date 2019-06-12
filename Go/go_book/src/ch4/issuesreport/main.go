@@ -8,6 +8,7 @@ import (
 	"time"
 )
 
+// 定义模板
 const templ = `{{.TotalCount}} issues:
 {{range .Items}}------------------------------------
 Number: {{.Number}}
@@ -21,7 +22,7 @@ func daysAgo(t time.Time) int {
 }
 
 var report = template.Must(template.New("issuelist").
-	Funcs(template.FuncMap{"daysAgo": daysAgo}).
+	Funcs(template.FuncMap{"daysAgo": daysAgo}).  // 添加函数列表
 	Parse(templ))
 
 func main() {
