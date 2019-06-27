@@ -19,6 +19,7 @@ func formatAtom(v reflect.Value) string {
 		return strconv.FormatInt(v.Int(), 10)
 	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64, reflect.Uintptr:
 		return strconv.FormatUint(v.Uint(), 10)
+	// ..为简化起见，省略了浮点数和复数的分支
 	case reflect.Bool:
 		return strconv.FormatBool(v.Bool())
 	case reflect.String:

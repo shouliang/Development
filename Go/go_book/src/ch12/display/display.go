@@ -34,6 +34,7 @@ func formatAtom(v reflect.Value) string {
 	}
 }
 
+// 递归显示值
 func display(path string, v reflect.Value) {
 	switch v.Kind() {
 	case reflect.Invalid:

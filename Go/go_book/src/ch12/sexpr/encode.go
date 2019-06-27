@@ -15,6 +15,7 @@ func Marsha(v interface{}) ([]byte, error) {
 	return buf.Bytes(), nil
 }
 
+// Type.Int() 、Uint()、String() 输出值
 func encode(buf *bytes.Buffer, v reflect.Value) error {
 	switch v.Kind() {
 	case reflect.Invalid:

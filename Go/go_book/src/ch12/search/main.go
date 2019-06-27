@@ -7,6 +7,7 @@ import (
 	"net/http"
 )
 
+// 从HTTP请求req的参数中提取数据填充到ptr指向结构体的各个字段
 func search(resp http.ResponseWriter, req *http.Request) {
 	var data struct {
 		Labels     []string `http:"l"`

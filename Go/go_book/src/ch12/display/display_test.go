@@ -1,3 +1,4 @@
+// 递归显示值的display
 package display
 
 import (
@@ -108,12 +109,12 @@ func Test(t *testing.T) {
 
 	// type S []S
 	// s := make(S,1)
-	// s[0] = s 
+	// s[0] = s
 	// Display("s",s)
 
 	type Cycle struct {
-		value int 
-		Tail *Cycle
+		value int
+		Tail  *Cycle
 	}
 	var c Cycle
 	c = Cycle{42, &c}

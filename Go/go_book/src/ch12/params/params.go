@@ -8,23 +8,26 @@ import (
 	"strings"
 )
 
+// 从HTTP请求req的参数中提取数据填充到ptr指向结构体的各个字段
 func Unpack(req *http.Request, ptr interface{}) error {
 	if err := req.ParseForm(); err != nil {
 		return err
 	}
 
+	// 创建字段map,key为有效名称
 	fields := make(map[string]reflect.Value)
 	v := reflect.ValueOf(ptr).Elem()
 	for i := 0; i < v.NumField(); i++ {
 		fieldInfo := v.Type().Field(i)
 		tag := fieldInfo.Tag
-		name := tag.Get("http")
+		name := tag.Get("http") // 解析strcut tag
 		if name == "" {
 			name = strings.ToLower(fieldInfo.Name)
 		}
 		fields[name] = v.Field(i)
 	}
 
+	// 对请求中的每个参数更新结构体中对应的字段
 	for name, values := range req.Form {
 		f := fields[name]
 		if !f.IsValid() {
@@ -48,6 +51,7 @@ func Unpack(req *http.Request, ptr interface{}) error {
 	return nil
 }
 
+// 根据类型，使用对应的方法转换成对应的值
 func populate(v reflect.Value, value string) error {
 	switch v.Kind() {
 	case reflect.String:

@@ -24,7 +24,7 @@ func Unmarshal(data []byte, out interface{}) (err error) {
 
 type lexer struct {
 	scan  scanner.Scanner
-	token rune
+	token rune  // 当前标记
 }
 
 func (lex *lexer) next()        { lex.token = lex.scan.Scan() }
@@ -37,6 +37,7 @@ func (lex *lexer) consume(want rune) {
 	lex.next()
 }
 
+// Type.Set 设置值
 func read(lex *lexer, v reflect.Value) {
 	switch lex.token {
 	case scanner.Ident:

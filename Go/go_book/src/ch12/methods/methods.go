@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// 输出值 x 的所有方法
 func Print(x interface{}) {
 	v := reflect.ValueOf(x)
 	t := v.Type()

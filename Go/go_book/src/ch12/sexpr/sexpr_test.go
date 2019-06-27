@@ -1,3 +1,4 @@
+// 把GO的值编码为S表达式的形式
 package sexpr
 
 import "testing"
