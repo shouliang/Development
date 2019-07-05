@@ -1,4 +1,4 @@
-// netcat1 is a read-only TCP client
+// netcat1 是一个只读的TCP客户端
 package main
 
 import (
@@ -17,6 +17,7 @@ func main() {
 	mustCopy(os.Stdout, conn)
 }
 
+// 从网络中读取数据，然后写入标准输出，直到遇到EOF或者出错
 func mustCopy(dst io.Writer, src io.Reader) {
 	if _, err := io.Copy(dst, src); err != nil {
 		log.Fatal(err)
