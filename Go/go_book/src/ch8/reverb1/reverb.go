@@ -26,6 +26,7 @@ func main() {
 	}
 }
 
+// 读取网络数据，并输出到客户端
 func handleConn(c net.Conn) {
 	input := bufio.NewScanner(c)
 	for input.Scan() {

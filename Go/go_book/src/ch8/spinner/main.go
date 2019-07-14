@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// spinner()指示器和fib()同时执行
 func main() {
 	go spinner(100 * time.Millisecond)
 	const n = 45
@@ -14,6 +15,7 @@ func main() {
 }
 
 func spinner(delay time.Duration) {
+	// for循环一直在执行，但是当主goroutine退出时，它也被强制退出
 	for {
 		for _, r := range `-\|/` {
 			fmt.Printf("\r%c", r)

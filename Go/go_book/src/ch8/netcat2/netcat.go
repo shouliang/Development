@@ -14,8 +14,8 @@ func main() {
 		log.Fatal(err)
 	}
 	defer conn.Close()
-	go mustCopy(os.Stdout, conn)
-	mustCopy(conn, os.Stdin)
+	go mustCopy(os.Stdout, conn) // 从网络读入数据到标准输出
+	mustCopy(conn, os.Stdin)     // 从标准输入读取数据到网络
 }
 
 func mustCopy(dst io.Writer, src io.Reader) {
