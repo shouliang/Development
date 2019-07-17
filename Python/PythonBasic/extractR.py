@@ -21,7 +21,7 @@ for i in range(0, sheet1.nrows):
     row_content = sheet1.row_values(i)                              # 获取当前行
     result = row_content[0:1] + result                              # 从当前行中去掉已处理的单元格，并和处理后的结果合并
 
-    # 写入新的表格: 以逐行逐利的方式
+    # 写入新的表格: 以逐行逐列的方式
     for j in range(len(result)):
         sheet1_new.write(i, j, result[j])
     
