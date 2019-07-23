@@ -23,6 +23,7 @@ for i in range(0, sheet1.nrows):
 
     # 写入新的表格: 以逐行逐列的方式
     for j in range(len(result)):
+        print((i,j))
         sheet1_new.write(i, j, result[j])
     
     print("dealing row at index "+ str(i))
