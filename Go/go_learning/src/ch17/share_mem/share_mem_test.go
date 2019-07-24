@@ -44,7 +44,7 @@ func TestCounterThreadSafe(t *testing.T) {
 		}()
 	}
 
-	// 强制sleep一秒等待前面的协程结束，再打印上counter,注释掉词句，很可能前面的5000个goroutin还没运行完，主进程已运行完毕，导致最终counter也没到5000
+	// 强制sleep一秒等待前面的协程结束，再打印上counter,注释掉此句，很可能前面的5000个goroutin还没运行完，主进程已运行完毕，导致最终counter也没到5000
 	time.Sleep(1 * time.Second)
 	t.Logf("counter =%d", counter)
 }
