@@ -11,9 +11,9 @@ workbook_new = xlwt.Workbook()
 sheet1_new = workbook_new.add_sheet('newsheet1')
 firstRow = []
 
-csvfilename = 'newR_raw.csv'
+csvfilename = 'newR.csv'
 # 提取生成表格
-with open(csvfilename, 'w') as csvfile:
+with open(csvfilename, 'w',newline='') as csvfile:
     writer = csv.writer(csvfile)
     # 读取sheet1中的所有行
     for i in range(0, sheet1.nrows):
@@ -50,7 +50,7 @@ with open(csvfilename, 'r') as csvfile:
         
 firstRow.insert(0,'')
 
-with open(csvfilename, 'w') as csvfile:
+with open(csvfilename, 'w',newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(firstRow)
     for line in allrows:
