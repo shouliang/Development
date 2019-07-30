@@ -36,17 +36,23 @@ with open('newR.csv', 'w') as csvfile:
 
 # 将提取的所有列写入第一行： 先读取再重新写入
 allrows = []
-with open('newR.csv', 'r') as csvfile: 
+with open('newR.csv', 'r') as csvfile:    
     csvreader = csv.reader(csvfile) 
     for row in csvreader: 
-        allrows.append(row)      
-
+        newrow=row[0:1]
+        for i in range(len(firstRow)):
+            if firstRow[i] in row:
+                newrow.append(1)
+            else:
+                newrow.append(0)
+        allrows.append(newrow)       
+        
 firstRow.insert(0,'')
 
 with open('newR.csv', 'w') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(firstRow)
     for line in allrows:
-        writer.writerow(line[0:1])
+        writer.writerow(line)
 
 print(len(firstRow))
